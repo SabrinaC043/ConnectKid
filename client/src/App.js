@@ -1,5 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
+import ThemeProvider from './utils/ThemeContext';
+import ThemeButton from './components/ThemeButton/index';
 
 function App() {
   return (
@@ -18,6 +20,9 @@ function App() {
           Learn React
         </a>
       </header>
+      <ThemeProvider>
+        <ThemeButton />
+      </ThemeProvider>
     </div>
   );
 }
