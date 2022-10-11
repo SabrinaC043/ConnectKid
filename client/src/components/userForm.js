@@ -1,0 +1,50 @@
+import React, { useState } from "react";
+// import  CREATE_USER from "../utils/apollo/mutations";
+
+const UserForm = () => {
+
+    const [ loginForm, setLoginForm ] = useState({
+        firstName: "",
+        lastName: "",
+        email: "",
+        password: ""
+    });
+
+    const onChange = (e) => {
+        const key = e.target.id
+        setLoginForm({...loginForm, [e.target.id]: e.target.value});
+    }
+
+    const onSubmit = () => {
+        // apollo query
+    }
+
+
+    return (
+
+        <form className="border m-auto w-50">
+        <div className="form-group">
+            {/* <div className="row">/ */}
+            <label>First Name: </label>
+            {/* </div> */}
+            <input id="firstName" type="text" onChange={onChange}></input>
+        <div className="form-group">
+            <label>Last Name: </label>
+            <input id="lastName" type="text" onChange={onChange}></input>
+        </div>
+        <div className="form-group">
+            <label>Email: </label>
+            <input id="email" type="text" onChange={onChange}></input>
+        </div>
+        <div className="form-group">
+            <label>Password: </label>
+            <input id="password" type="text" onChange={onChange}></input>
+        </div>
+
+        </div>
+
+        </form>
+    )
+}
+
+export default UserForm;
