@@ -1,7 +1,7 @@
-const { gql } = require('apollo-server');
+const { gql } = require("apollo-server");
 
 const TypeDefs = gql`
-"User login will track information about specific user and associated child(ren)"
+#
 
 type User {
 _id: ID!
@@ -16,7 +16,6 @@ _id:ID!
 name:String!
 age: INT
 gender: String
-
 }
 
 type Extroversion {
