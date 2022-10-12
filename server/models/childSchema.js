@@ -8,5 +8,6 @@ const childSchema = new Schema({
     max: [2, "Age must have 2 digits maximum."],
   },
   interests: [{ type: String }],
+  gender: { type: String }
 });
 module.exports = childSchema;
