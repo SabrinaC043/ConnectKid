@@ -5,6 +5,7 @@ import ThemeButton from './components/ThemeButton/index';
 import UserForm from './components/userForm';
 import BasicCard from './components/cards/cards';
 import FeatureCard from './components/cards/featureCard';
+import NavScrollExample from './components/navbar';
 function App() {
   return (
       // <ThemeProvider>
