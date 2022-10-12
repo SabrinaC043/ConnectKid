@@ -10,6 +10,7 @@ import BasicCard from "./components/cards/cards";
 import FeatureCard from "./components/cards/featureCard";
 import NavScrollExample from "./components/navbar";
 import { BrowserRouter } from "react-router-dom";
+import About from "./components/about";
 function App() {
   return (
     // <ThemeProvider>
@@ -24,7 +25,7 @@ function App() {
       <NavScrollExample />
       <Routes>
         <Route exact path="/" element={<BasicCard />} />
-        <Route exact path="/about" element={<UserForm />} />
+        <Route exact path="/about" element={<About />} />
         <Route
           exact
           path="/events"
