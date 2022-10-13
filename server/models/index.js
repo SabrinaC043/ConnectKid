@@ -1,4 +1,4 @@
-const User = require('./User');
+const Parent = require("./Parent");
+const childSchema = require("./childSchema");
 
-
-module.exports = { User };
+module.exports = { Parent, childSchema };
