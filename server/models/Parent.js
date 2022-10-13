@@ -1,10 +1,7 @@
 const { Schema, model } = require("mongoose");
 const bcrypt = require("bcrypt");
 const childSchema = require("./childSchema");
-const Event = require('./Event')
-
-
-
+const Event = require("./Event");
 
 const parentSchema = new Schema({
   firstName: {
@@ -16,7 +13,7 @@ const parentSchema = new Schema({
   lastName: {
     type: String,
     required: true,
-    trim: true
+    trim: true,
   },
   email: {
     type: String,

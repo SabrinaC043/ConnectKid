@@ -9,9 +9,9 @@ const resolvers = {
       return await Parent.find({});
     },
 
-    singleParent: async (parent, {email}) => {
-      return await Parent.findOne({email})
-    }
+    singleParent: async (parent, { email }) => {
+      return await Parent.findOne({ email });
+    },
   },
 
   Mutation: {
@@ -24,18 +24,18 @@ const resolvers = {
     return {parent: newParent, token}
   },
 
-  logIn: async (parent, {email, password}) => {
-    const currentParent = await Parent.findOne({email});
+    logIn: async (parent, { email, password }) => {
+      const currentParent = await Parent.findOne({ email });
 
-    if (!currentParent) {
-      throw new AuthenticationError("No Parent has been found with that email")  
-    }
+      if (!currentParent) {
+        throw new AuthenticationError(
+          "No Parent has been found with that email"
+        );
+      }
 
-    if ( 
-      !currentParent.isCorrectPassword(password)
-    ) {
-      throw new AuthenticationError("Incorrect email or password")
-    }
+      if (!currentParent.isCorrectPassword(password)) {
+        throw new AuthenticationError("Incorrect email or password");
+      }
 
 
     const token = signToken({email});
