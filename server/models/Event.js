@@ -9,9 +9,9 @@ const eventSchema = new Schema({
 
     date: { type: Date },
 
-    preparationTips: { type: String }
+    preparationTips: { type: String },
 
-
+    featured: {type: Boolean, default: false}
 
 });
 
