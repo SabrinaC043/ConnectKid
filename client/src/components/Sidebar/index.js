@@ -1,6 +1,7 @@
 import React from 'react';
-import ThemeProvider, { useTheme } from '../../utils/ThemeContext';
+import { useTheme } from '../../utils/ThemeContext';
 import SidebarButton from './SidebarButton';
+import SidebarCard from './SidebarCard';
 
 
 export default function Sidebar() {
@@ -13,7 +14,7 @@ export default function Sidebar() {
         ? <div className='row d-flex justify-contents-center '>
             <SidebarButton />
           </div>
-        : <div></div>
+        : <div>Not Mobile</div>
       }
     </>
   );
