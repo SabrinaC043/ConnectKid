@@ -16,10 +16,19 @@ const typeDefs = gql`
     interests: [String]
     gender: String
   }
-
+  type Event {
+    name: String!
+    location: String!
+    time: Int
+    date: String
+    preparationTips: String
+    attendees: [ID]
+  }
   type Query {
     parents: [Parent]!
     singleParent(email: String!): Parent
+    events: [Event]!
+    singleEvent(name: String!): Event
   }
 
   type Auth {
@@ -36,6 +45,15 @@ const typeDefs = gql`
       age: Int!
       child: String
     ): Auth
+
+    createEvent(
+      name: String!
+      location: String!
+      time: Int!
+      date: String!
+      preparationTips: String
+      attendees: [ID]!
+    ): Event
 
     logIn(email: String!, password: String!): Auth
   }
