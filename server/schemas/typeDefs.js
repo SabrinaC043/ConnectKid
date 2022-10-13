@@ -52,7 +52,7 @@ const typeDefs = gql`
       time: Int!
       date: String!
       preparationTips: String
-      attendees: [ID]!
+      attendees: [ID]
     ): Event
 
     logIn(email: String!, password: String!): Auth
