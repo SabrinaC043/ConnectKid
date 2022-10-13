@@ -5,6 +5,7 @@ const typeDefs = gql`
     firstName: String
     lastName: String
     age: Int
+    email: String
     child: [Child]
   }
 
@@ -27,11 +28,16 @@ const typeDefs = gql`
   }
 
   type Mutation {
-
-    createParent(firstName: String!, lastName: String!, email: String!, age: Int!, child: String): Auth
+    createParent(
+      firstName: String!
+      lastName: String!
+      email: String!
+      password: String!
+      age: Int!
+      child: String
+    ): Auth
 
     logIn(email: String!, password: String!): Auth
-
   }
 `;
 module.exports = typeDefs;
