@@ -9,38 +9,46 @@ const resolvers = {
       return await Parent.find({});
     },
 
-    singleParent: async (parent, {email}) => {
-      return await Parent.findOne({email})
-    }
+    singleParent: async (parent, { email }) => {
+      return await Parent.findOne({ email });
+    },
   },
 
   Mutation: {
-    createParent: async(parent, {firstName, lastName, email, age, child}) => {
-    const newParent = await Parent.create({firstName, lastName, email, age, child});
+    createParent: async (
+      parent,
+      { firstName, lastName, email, password, age, child }
+    ) => {
+      const newParent = await Parent.create({
+        firstName,
+        lastName,
+        email,
+        password,
+        age,
+        child,
+      });
 
-    const token = signToken(email);
-    return {newParent, token}
+      const token = signToken(email);
+      return { newParent, token };
+    },
+
+    logIn: async (parent, { email, password }) => {
+      const currentParent = await Parent.findOne({ email });
+
+      if (!currentParent) {
+        throw new AuthenticationError(
+          "No Parent has been found with that email"
+        );
+      }
+
+      if (!currentParent.isCorrectPassword(password)) {
+        throw new AuthenticationError("Incorrect email or password");
+      }
+
+      const token = signToken({ email });
+
+      return { currentParent, token };
+    },
   },
-
-  logIn: async (parent, {email, password}) => {
-    const currentParent = await Parent.findOne({email});
-
-    if (!currentParent) {
-      throw new AuthenticationError("No Parent has been found with that email")  
-    }
-
-    if ( 
-      !currentParent.isCorrectPassword(password)
-    ) {
-      throw new AuthenticationError("Incorrect email or password")
-    }
-
-
-    const token = signToken({email});
-
-    return { currentParent, token}
-  }
-}
-  
 };
 module.exports = resolvers;
