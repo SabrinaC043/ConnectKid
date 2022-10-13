@@ -1,6 +1,7 @@
 import React from 'react';
-import ThemeProvider, { useTheme } from '../../utils/ThemeContext';
+import { useTheme } from '../../utils/ThemeContext';
 import SidebarButton from './SidebarButton';
+import SidebarCar from './SidebarCard';
 
 
 export default function Sidebar() {
