@@ -2,7 +2,7 @@ import { gql } from "@apollo/client";
 
 
 
-const CREATE_PARENT = gql`
+export const CREATE_PARENT = gql`
 mutation Mutation($firstName: String!, $lastName: String!, $email: String!, $password: String!, $age: Int!) {
     createParent(firstName: $firstName, lastName: $lastName, email: $email, password: $password, age: $age) {
       parent {
@@ -13,4 +13,4 @@ mutation Mutation($firstName: String!, $lastName: String!, $email: String!, $pas
     }
   }
 `
-export default CREATE_PARENT;
+export default {CREATE_PARENT};

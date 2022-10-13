@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import CREATE_PARENT from "../../utils/apollo/mutations";
+import {CREATE_PARENT} from "../../utils/apollo/mutations";
 import { useMutation } from "@apollo/client";
 
 const ParentSignUp = () => {
@@ -8,61 +8,69 @@ const ParentSignUp = () => {
         firstName: "",
         lastName: "",
         email: "",
-        password: ""
+        password: "",
+        age: ""
     });
 
-    // const [createParent, {data, loading, error}] = useMutation(CREATE_PARENT)
+    const [createParent, {data, loading, error}] = useMutation(CREATE_PARENT)
 
     const onChange = (e) => {
         const key = e.target.id
-        setLoginForm({...loginForm, [e.target.id]: e.target.value});
+        setLoginForm({...loginForm, [key]: e.target.value});
     }
 
     const onSubmit = (e) => {
-        // apollo query
+    //     // apollo query
 
         e.preventDefault();
-        // createParent({variables: {loginForm}})
-        const { loading, error, data } = useMutation(CREATE_PARENT, {variables: {firstName: loginForm.firstName}});
-        // console.log(data); 
+    //     // createParent({variables: {loginForm}})
+        // const result = useMutation(CREATE_PARENT, {variables: {firstName: loginForm.firstName}});
+
+        let value =e.target.type;
+        const name= e.target.name
+        createParent((prevState) => ({
+            ...prevState,
+            [name]: value
+        }))
+        console.log(data); 
         
     }
 
 
+
+
     return (
 
-        <>
-
         <form className="border m-auto w-50" onSubmit={onSubmit}>
-        <div className="form-group">
-            {/* <div className="row">/ */}
-            <label>First Name: </label>
-            {/* </div> */}
-            <input id="firstName" type="text" onChange={onChange}></input>
-        <div className="form-group">
-            <label>Last Name: </label>
-            <input id="lastName" type="text" onChange={onChange}></input>
-        </div>
-        <div className="form-group">
-            <label>Email: </label>
-            <input id="email" type="text" onChange={onChange}></input>
-        </div>
-        <div className="form-group">
-            <label>Password: </label>
-            <input id="password" type="text" onChange={onChange}></input>
-        </div>
-        <div className="form-group">
-            <label>Age: </label>
-            <input type="number" maxLength={2} id="age"></input>
-        </div>
+            <div className="form-group">
+                {/* <div className="row">/ */}
+                <label>First Name: </label>
+                {/* </div> */}
+                <input id="firstName" type="text" onChange={onChange}></input>
+            <div className="form-group">
+                <label>Last Name: </label>
+                <input id="lastName" type="text" onChange={onChange}></input>
+            </div>
+            <div className="form-group">
+                <label>Email: </label>
+                <input id="email" type="text" onChange={onChange}></input>
+            </div>
+            <div className="form-group">
+                <label>Password: </label>
+                <input id="password" type="text" onChange={onChange}></input>
+            </div>
+            <div className="form-group">
+                <label>Age: </label>
+                <input type="number" maxLength={2} id="age"></input>
+            </div>
 
-        </div>
+            </div>
 
-        <input type="submit" onSubmit={onSubmit} />
+            <input type="submit" onSubmit={onSubmit} />
 
         </form>
 
-        </>
+       
     )
 }
 
