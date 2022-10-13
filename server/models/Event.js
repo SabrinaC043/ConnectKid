@@ -7,7 +7,10 @@ const eventSchema = new Schema({
 
     timestamps: true,
 
-    date: { type: Date },
+    date: {
+        type: Date,
+        default: Date.now
+    },
 
     preparationTips: { type: String }
 
