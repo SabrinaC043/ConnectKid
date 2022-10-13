@@ -1,26 +1,21 @@
 import React from 'react';
-import Accordion from './Accordion/index';
-import Column from './Column/index';
 import ThemeProvider, { useTheme } from '../../utils/ThemeContext';
+import SidebarButton from './SidebarButton';
+
 
 export default function Sidebar() {
   
-  const { isMobile} = useTheme();
+  const { isMobile } = useTheme();
 
   return (
     <>
       {isMobile
-        ? <h1>Accordion</h1>
-        : <h1>Column</h1>
+        ? <div className='row d-flex justify-contents-center '>
+            <SidebarButton />
+          </div>
+        : <div></div>
       }
     </>
   );
 
 }
-
-// <Accordion />
-// <MobileProvider> */}
-// {mobile */}
-// <Accordion /> */}
-// <Column /> */}
-// </MobileProvider> */}
