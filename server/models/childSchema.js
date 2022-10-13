@@ -1,7 +1,16 @@
 const { Schema } = require("mongoose");
 
 const childSchema = new Schema({
-  name: { type: String, required: [true, "A child must have a name!"] },
+  firstName: { 
+    type: String,
+    required: [true, "A child must have a name!"],
+    trim: true
+ },
+  lastName: {
+    type: String,
+    required:true,
+    trim: true
+  },
   age: {
     type: Number,
     required: [true, "A child must have a specified age."],

@@ -1,17 +1,22 @@
 const { Schema, model } = require("mongoose");
 const bcrypt = require("bcrypt");
 const childSchema = require("./childSchema");
-const event = require('./Event')
+const Event = require('./Event')
 
 
 
 
 const parentSchema = new Schema({
-  name: {
+  firstName: {
     type: String,
     required: true,
-    unique: true,
     trim: true,
+  },
+
+  lastName: {
+    type: String,
+    required: true,
+    trim: true
   },
   email: {
     type: String,
@@ -30,7 +35,7 @@ const parentSchema = new Schema({
     max: [2, "Age must have 2 digits maximum."],
   },
   child: [childSchema],
-  chosenEvents: [{ type: Schema.Types.ID, ref: "event" }],
+  chosenEvents: [{ type: Schema.Types.ObjectId, ref: Event }],
 });
 
 parentSchema.pre("save", async function (next) {
