@@ -12,27 +12,35 @@ const ParentSignUp = () => {
         age: ""
     });
 
-    const [createParent, {data, loading, error}] = useMutation(CREATE_PARENT)
+    const [createParent, { error}] = useMutation(CREATE_PARENT)
 
     const onChange = (e) => {
         const key = e.target.id
         setLoginForm({...loginForm, [key]: e.target.value});
     }
 
-    const onSubmit = (e) => {
+    const onSubmit = async (e) => {
     //     // apollo query
 
         e.preventDefault();
     //     // createParent({variables: {loginForm}})
         // const result = useMutation(CREATE_PARENT, {variables: {firstName: loginForm.firstName}});
 
-        let value =e.target.type;
-        const name= e.target.name
-        createParent((prevState) => ({
-            ...prevState,
-            [name]: value
-        }))
-        console.log(data); 
+        const { data } = await createParent({
+            variables: {firstName: loginForm.firstName, lastName: loginForm.lastName, email: loginForm.email,
+                password: loginForm.password, age: parseInt(loginForm.age)}
+        })
+
+        console.log(data);
+
+
+        // let value =e.target.type;
+        // const name= e.target.name
+        // createParent((prevState) => ({
+        //     ...prevState,
+        //     [name]: value
+        // }))
+        // console.log(data); 
         
     }
 
@@ -61,7 +69,7 @@ const ParentSignUp = () => {
             </div>
             <div className="form-group">
                 <label>Age: </label>
-                <input type="number" maxLength={2} id="age"></input>
+                <input type="number" maxLength={2} id="age" onChange={onChange}></input>
             </div>
 
             </div>
