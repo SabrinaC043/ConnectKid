@@ -1,25 +1,27 @@
 import React from 'react';
 import Sidebar from '../components/Sidebar/index';
 import FeatureCard from '../components/cards/featureCard';
-import BasicCard from '../components/cards/cards';
+import BasicCard from '../components/cards/card';
 
-export default function events() {
-  
+export default function Events({eventCards, featuredCard}) {
+
   return (
     <>
       <Sidebar />
       <FeatureCard
-        title={title}
-        date={date}
-        time={time}
-        text={text}
+        title={featuredCard.title}
+        date={featuredCard.date}
+        time={featuredCard.time}
+        text={featuredCard.text}
       />
-      <Cards
-        title={title}
-        date={date}
-        time={time}
-        text={text}
-      />
+      {eventCards.map((card, i) => (
+        <BasicCard key={i}
+          title={card.title}
+          date={card.date}
+          time={card.time}
+          text={card.text}
+          />
+      ))}
     </>
   );
 }

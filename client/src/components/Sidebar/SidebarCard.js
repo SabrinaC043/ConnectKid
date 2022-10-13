@@ -3,7 +3,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { Container } from "react-bootstrap";
 
-export default function sidebarCard = (props) => {
+export default function SidebarCard(props) {
   return (
 
     <Container fluid>
@@ -14,10 +14,10 @@ export default function sidebarCard = (props) => {
           <p>Hello</p>
           <Card className="text-center col-9 border">
             <Card.Body>
-              <Card.Title><u>{props.title}</u></Card.Title>
+              {/* <Card.Title><u>{props.title}</u></Card.Title>
               <Card.Subtitle>{props.date}</Card.Subtitle>
               <Card.Text>{props.time}</Card.Text>
-              <Card.Text>{props.text}</Card.Text>
+              <Card.Text>{props.text}</Card.Text> */}
             </Card.Body>
           </Card>
         </Col>
