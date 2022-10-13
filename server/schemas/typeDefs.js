@@ -7,7 +7,6 @@ const typeDefs = gql`
     email: String
     password: String
     age: Int
-    email: String
     child: [Child]
   }
 
