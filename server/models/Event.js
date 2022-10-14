@@ -1,25 +1,26 @@
 const { Schema, model } = require("mongoose");
-
+// const childSchema = require("./childSchema");
+const Parent = require("./Parent");
 const eventSchema = new Schema({
-    name: { type: String },
+  name: { type: String, unique: true },
 
-    location: { type: String },
+  location: { type: String },
 
-    timestamps: true,
+  time: { type: Number },
 
-    date: { type: Date },
 
     preparationTips: { type: String },
 
     featured: {type: Boolean, default: false}
 
+  // attendees: [
+  //   {
+  //     type: Schema.Types.ObjectId,
+  //     ref: "Parent",
+  //   },
+  // ],
 });
 
-
-
-const Event = model('event', eventSchema)
-
-
+const Event = model("Event", eventSchema);
 
 module.exports = Event;
-

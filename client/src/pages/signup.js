@@ -1,11 +1,12 @@
 import React from 'react';
-import UserForm from '../components/userForm';
+// import ParentSi from '../components/userForm';
+import ParentSignUp from "../components/forms/parentSignUp";
 
 export default function Signup() {
   
   return (
     <>
-      <UserForm />
+      <ParentSignUp />
     </>
   );
 }

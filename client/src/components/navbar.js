@@ -6,7 +6,7 @@ import { LinkContainer } from 'react-router-bootstrap';
 function NavScrollExample() {
   return (
     <Navbar bg="light" expand="lg">
-      <Container fluid>
+      {/* <Container fluid> */}
         <Navbar.Brand href="#">ConnectKid</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
@@ -34,7 +34,7 @@ function NavScrollExample() {
             </LinkContainer>
           </Nav>
         </Navbar.Collapse>
-      </Container>
+      {/* </Container> */}
     </Navbar>
   );
 }

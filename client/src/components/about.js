@@ -3,38 +3,119 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
+import backgroundImage from "../assets/images/eventBackground.jpg";
+import "../style/aboutstyle.css";
 
-const About = () => {
+
+const AboutInformation = () => {
+
+  const backgroundStyle = {
+    backgroundImage: `url(${backgroundImage})`,
+    height: "max-content",
+    paddingBottom: "200px"
+  }
+
   return (
-    <Container fluid>
-      <Row className="justify-content-around" style={{ marginTop: "200px" }}>
+    <Container fluid className="text-center" style={backgroundStyle}>
+      <Row className="justify-content-around" style={{ paddingTop: "200px" }}>
         <Col
           xs={12}
           md={5}
-          border="primary"
+          className="border shadow"
           style={{ minHeight: "200px", minWidth: "200px" }}
         >
-          <Card>
-            <h2>Mission & Values</h2>
-            <h3>This is our mission</h3>
-            <p>these are our values</p>
-          </Card>
+          <h2>Mission & Values</h2>
+          <h3>We're on a mission to bring families together</h3>
+          <p>
+            We value inclusion and accessibility for all kids and parents. Our
+            team seeks to provide transparent information about events local to
+            the Dallas, Texas area. We empower families to know what to expect
+            at events so they can worry less about logistics and more about
+            making friends and integrating with their local community.
+          </p>
         </Col>
         <Col
           xs={12}
           md={5}
-          className="border"
+          className="border shadow"
           style={{ minHeight: "200px", minWidth: "200px" }}
         >
-          <Card>
-            <h2>Images</h2>
-          </Card>
+          <h2>The Connectors Team Members</h2>
+          <ul style={{ listType: "none" }}>
+            <dd>
+              <a href="https://github.com/SabrinaC043" target="_blank">
+                Sabrina Carrion
+              </a>
+            </dd>
+            <dd>
+              <a href="https://github.com/Ehren-Lewis" target="_blank">
+                Ehren Lewis
+              </a>  
+            </dd>
+            <dd>
+              <a href="https://github.com/BrettMiller47" target="_blank">
+                Brett Miller
+              </a>
+            </dd>
+            <dd>
+              <a href="https://github.com/jeffbone95" target="_blank">
+                Jeffery Willingham
+              </a>
+            </dd>
+            <dd>
+              <a href="https://github.com/MikeTigray" target="_blank">
+                Micheale Abay
+              </a>
+            </dd>
+            <dd>
+              <a href="https://github.com/vianvianc" target="_blank">
+                Vian Charbonneau
+              </a>
+            </dd>
+            <dd>
+              <a href="https://github.com/GranSpencer09" target="_blank">
+                Spencer Gran
+              </a>
+            </dd>
+          </ul>
         </Col>
       </Row>
+
+      <Row className="justify-content-around" style={{ paddingTop: "200px" }}>
+        <Col
+          xs={12}
+          md={5}
+          className="border shadow"
+          style={{ minHeight: "200px", minWidth: "200px" }}
+        >
+          <h2>Who We Are</h2>
+          <h3>Us Here at ConnectKids are just like you!</h3>
+          <p>
+            We either have kids or some of us plan to have kids one day.
+            We desire a community where we can take our kids (or future kids)
+            to without having to worry if it's accessible, or if our kids
+            won't know anyone there.
+          </p>
+        </Col>
+
+        <Col
+          xs={12}
+          md={5}
+          className="border shadow"
+          style={{ minHeight: "200px", minWidth: "200px" }}
+        >
+          <h2>What We Provide</h2>
+          <h3>We provide an easy way to track events</h3>
+          <p>
+            We Use our event sourcing algorithms to find and provide
+            events in an easy to digest format, as well as setting up
+            attendence for each event so you don't have to worry about who is or isn't coming.
+          </p>
+        </Col>
+
+        </Row>
     </Container>
   );
 };
 
-export default About;
-
-// This may not work with react-router-dom, mine didn't the first time around.
+export default AboutInformation;
