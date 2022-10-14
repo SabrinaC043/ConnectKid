@@ -21,7 +21,7 @@ const FeatureCard = (props) => {
     // <Row className="justify-content-around" style={{marginTop: "200px"}}>
 
     // <Col xs={12} md={5} style={{minHeight: "200px", minWidth: "200px"}}>
-    // <Card className="text-center">
+    <Card className="text-center">
     <Card.Body>
       <Card.Title>
         <u>{props.title}</u>
@@ -30,7 +30,7 @@ const FeatureCard = (props) => {
       <Card.Text>{props.time}</Card.Text>
       <Card.Text>{props.text}</Card.Text>
     </Card.Body>
-    // </Card>
+    </Card>
 
     // </Col>
     // </Row>
