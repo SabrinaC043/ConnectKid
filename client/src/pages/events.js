@@ -26,61 +26,50 @@ const firstFeaturedIndex = data.events.map(event => event.isFeatured).indexOf(tr
 
 const firstFeaturedItem = data.events[firstFeaturedIndex];
 console.log(firstFeaturedIndex);
-const eventsWithoutFeatured = data.events.filter( (e, i) => i != firstFeaturedIndex);
-
-console.log(eventsWithoutFeatured);
-
-console.log('hello');
-
-
-console.log(data.events);
-
+const eventsWithoutFeatured = data.events.filter( (e, i) => i !== firstFeaturedIndex);
 
 
   
 
   return (
     <>
-      {/* <Sidebar /> */}
+      <Sidebar />
 
+    <Container>
       <Row>
-
-        <Col xs={12} md={6}>
-
+        <Col xs={12} md={4} className="mx-auto">
           <FeatureCard
             title={firstFeaturedItem.name}
             date={firstFeaturedItem.date}
             text="This is our first featured event!"
             // locatio needs to be added
-
             />
-
         </Col>
-
-
-
       </Row>
-
-      {data.events.map( (currentEvent, index) => (
-        <Col xs={6} md={4} key={index}>
+    
+    <Row>
+      {eventsWithoutFeatured.map( (currentEvent, index) => (
+          <Col xs={6} md={4} key={index}>
             <BasicCard
               title={currentEvent.name}
               date={currentEvent.date}
+              location={currentEvent.location}
               />
           </Col>
-          )
-      )
+      ))
       }
+
+    </Row>
       
 
-      <Row>
+      {/* <Row>
       <FeatureCard
         title={featuredCard.title}
         date={featuredCard.date}
         time={featuredCard.time}
         text={featuredCard.text}
       />
-      </Row>
+      </Row> */}
       {/* {eventCards.map((card, i) => (
         <BasicCard key={i}
           title={card.title}
@@ -89,6 +78,7 @@ console.log(data.events);
           text={card.text}
           />
       ))} */}
+      </Container>
     </>
   );
 }

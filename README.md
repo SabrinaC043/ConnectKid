@@ -24,12 +24,19 @@ I want to also have an option for virtual events to "break the ice" and get to k
 
 ### Learned Experiences
 
+- obstacles:
+
+- obstacles:
+
+- obstacles:
+
 ### Images
 
-Inline-style:
-![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")
+Preparation: (KanBan Board and WireFrame)
+![alt text here](link to images here")
 
-Reference-style:
-![alt text][logo]
+Execution: (links to app)
+![alt text here](link to images here")
 
-[logo]: https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 2"
+Presentation:
+![alt text here](link to images here")
