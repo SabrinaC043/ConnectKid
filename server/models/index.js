@@ -1,5 +1,5 @@
-const childSchema = require("./childSchema");
+const Child = require("./Child");
 const Parent = require("./Parent");
 const Event = require("./Event");
 
-module.exports = { Parent, childSchema, Event };
+module.exports = { Parent, Event, Child };

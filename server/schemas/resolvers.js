@@ -1,4 +1,4 @@
-const { Parent, Event } = require("../models");
+const { Parent, Event, Child } = require("../models");
 
 const { AuthenticationError } = require("apollo-server-express");
 const { signToken } = require("../utils/auth");
@@ -39,6 +39,29 @@ const resolvers = {
       const token = signToken(email);
       return { parent: newParent, token };
     },
+    createChild: async (
+      parent,
+      { firstName, lastName, age, interests, gender, parentId },
+      context
+    ) => {
+      // if (context.user) {
+      const child = new Child({
+        firstName,
+        lastName,
+        age,
+        interests,
+        gender,
+      });
+
+      await Parent.findByIdAndUpdate(parentId, {
+        $addToSet: { child: child },
+      });
+
+      return child;
+
+      // throw new AuthenticationError("Not logged in");
+    },
+
     createEvent: async (
       parent,
       { name, location, time, date, isFeatured, preparationTips, attendees }

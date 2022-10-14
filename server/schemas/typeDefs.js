@@ -12,6 +12,7 @@ const typeDefs = gql`
   }
 
   type Child {
+    _id: ID
     firstName: String!
     lastName: String!
     age: Int!
@@ -49,6 +50,14 @@ const typeDefs = gql`
       age: Int!
       child: String
     ): Auth
+    createChild(
+      firstName: String!
+      lastName: String!
+      age: Int
+      interests: [String]
+      gender: String
+      parentId: ID
+    ): Child
 
     createEvent(
       name: String!

@@ -1,6 +1,6 @@
 const { Schema, model } = require("mongoose");
 const bcrypt = require("bcrypt");
-const childSchema = require("./childSchema");
+const Child = require("./Child");
 
 const parentSchema = new Schema({
   firstName: {
@@ -29,7 +29,7 @@ const parentSchema = new Schema({
     type: Number,
     required: [true, "A parent must have a specified age."],
   },
-  child: [childSchema],
+  child: [Child.schema],
 });
 
 parentSchema.pre("save", async function (next) {
