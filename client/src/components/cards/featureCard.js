@@ -4,11 +4,7 @@ import Col from "react-bootstrap/Col";
 import { Container } from "react-bootstrap";
 
 const FeatureCard = (props) => {
-
-
-
-    return(
-
+  return (
     // <Card className="text-center col-9 border" style={{marginTop: "200px"}}>
     // <Card.Body>
     //     <Card.Title><u>{props.title}</u></Card.Title>
@@ -16,33 +12,31 @@ const FeatureCard = (props) => {
     //     <Card.Text>{props.time}</Card.Text>
 
     //     <Card.Text>{props.text}</Card.Text>
- 
+
     // </Card.Body>
     // </Card>
 
+    // <Container fluid>
 
-    <Container fluid>
+    // <Row className="justify-content-around" style={{marginTop: "200px"}}>
 
-    <Row className="justify-content-around" style={{marginTop: "200px"}}>
+    // <Col xs={12} md={5} style={{minHeight: "200px", minWidth: "200px"}}>
+    // <Card className="text-center">
+    <Card.Body>
+      <Card.Title>
+        <u>{props.title}</u>
+      </Card.Title>
+      <Card.Subtitle>{props.date}</Card.Subtitle>
+      <Card.Text>{props.time}</Card.Text>
+      <Card.Text>{props.text}</Card.Text>
+    </Card.Body>
+    // </Card>
 
-    <Col xs={12} md={5} style={{minHeight: "200px", minWidth: "200px"}}>
-     <Card className="text-center col-9">
-     <Card.Body>
-         <Card.Title><u>{props.title}</u></Card.Title>
-         <Card.Subtitle>{props.date}</Card.Subtitle>
-         <Card.Text>{props.time}</Card.Text>
-         <Card.Text>{props.text}</Card.Text>
- 
-     </Card.Body>
-    </Card>
+    // </Col>
+    // </Row>
 
-    </Col>
-    </Row>
+    // </Container>
+  );
+};
 
-
-    </Container>
-    )
-
-}
-
-export default FeatureCard
+export default FeatureCard;
