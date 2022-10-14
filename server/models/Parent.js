@@ -29,9 +29,9 @@ const parentSchema = new Schema({
   age: {
     type: Number,
     required: [true, "A parent must have a specified age."],
+    // max: [2, "Age must have 2 digits maximum."],
   },
-  child: [childSchema],
-  chosenEvents: [{ type: Schema.Types.ObjectId, ref: Event }],
+  child: [childSchema]
 });
 
 parentSchema.pre("save", async function (next) {

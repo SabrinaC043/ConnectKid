@@ -4,8 +4,9 @@ const typeDefs = gql`
   type Parent {
     firstName: String
     lastName: String
-    age: Int
     email: String
+    password: String
+    age: Int
     child: [Child]
   }
 
@@ -21,6 +22,7 @@ const typeDefs = gql`
     location: String!
     time: Int
     date: String
+    isFeatured: Boolean
     preparationTips: String
     attendees: [ID]
   }
@@ -37,22 +39,17 @@ const typeDefs = gql`
   }
 
   type Mutation {
-    createParent(
-      firstName: String!
-      lastName: String!
-      email: String!
-      password: String!
-      age: Int!
-      child: String
-    ): Auth
+
+    createParent(firstName: String!, lastName: String!, email: String!, password: String!, age: Int!, child: String): Auth
 
     createEvent(
       name: String!
       location: String!
       time: Int!
       date: String!
-      preparationTips: String
-      attendees: [ID]!
+      preparationTips: String,
+      isFeatured: Boolean
+      attendees: [ID]
     ): Event
 
     logIn(email: String!, password: String!): Auth
