@@ -2,6 +2,7 @@ const { gql } = require("apollo-server-express");
 
 const typeDefs = gql`
   type Parent {
+    _id: ID
     firstName: String
     lastName: String
     email: String
@@ -11,13 +12,14 @@ const typeDefs = gql`
   }
 
   type Child {
-    firstName: String
-    lastName: String
-    age: Int
+    firstName: String!
+    lastName: String!
+    age: Int!
     interests: [String]
     gender: String
   }
   type Event {
+    _id: ID
     name: String!
     location: String!
     time: Int
@@ -39,21 +41,28 @@ const typeDefs = gql`
   }
 
   type Mutation {
-
-    createParent(firstName: String!, lastName: String!, email: String!, password: String!, age: Int!, child: String): Auth
+    createParent(
+      firstName: String!
+      lastName: String!
+      email: String!
+      password: String!
+      age: Int!
+      child: [String]
+    ): Auth
 
     createEvent(
       name: String!
       location: String!
       time: Int!
       date: String!
-      preparationTips: String,
+      preparationTips: String
       isFeatured: Boolean
       attendees: [ID]
     ): Event
+
+    addParentToEvent(parentId: ID!, eventId: ID!): Event
 
     logIn(email: String!, password: String!): Auth
   }
 `;
 module.exports = typeDefs;
-

@@ -14,7 +14,7 @@ const resolvers = {
       return await Parent.findOne({ email });
     },
     events: async () => {
-      return await Event.find({})
+      return await Event.find({});
       // .populate("attendees");
     },
     singleEvent: async (parent, { name }) => {
@@ -23,7 +23,6 @@ const resolvers = {
   },
 
   Mutation: {
-
     createParent: async (
       parent,
       { firstName, lastName, email, password, age, child }
@@ -54,6 +53,13 @@ const resolvers = {
         attendees,
       });
     },
+    addParentToEvent: async (parent, { parentId, eventId }) => {
+      return await Event.findOneAndUpdate(
+        { _id: eventId },
+        { $addToSet: { attendees: parentId } },
+        { new: true, runValidators: true }
+      );
+    },
 
     logIn: async (parent, { email, password }) => {
       const currentParent = await Parent.findOne({ email });
@@ -68,12 +74,10 @@ const resolvers = {
         throw new AuthenticationError("Incorrect email or password");
       }
 
+      const token = signToken({ email });
 
-    const token = signToken({email});
-
-    return { parent: currentParent, token}
-  }
-}
-  
+      return { parent: currentParent, token };
+    },
+  },
 };
 module.exports = resolvers;
