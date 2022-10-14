@@ -27,3 +27,5 @@ class AuthSerice {
 
 
 }
+
+export default new AuthService();

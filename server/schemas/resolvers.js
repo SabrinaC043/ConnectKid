@@ -14,7 +14,8 @@ const resolvers = {
       return await Parent.findOne({ email });
     },
     events: async () => {
-      return await Event.find({}).populate("attendees");
+      return await Event.find({})
+      // .populate("attendees");
     },
     singleEvent: async (parent, { name }) => {
       return await Event.findOne({ name });
@@ -41,13 +42,14 @@ const resolvers = {
     },
     createEvent: async (
       parent,
-      { name, location, time, date, preparationTips, attendees }
+      { name, location, time, date, isFeatured, preparationTips, attendees }
     ) => {
       return await Event.create({
         name,
         location,
         time,
         date,
+        isFeatured,
         preparationTips,
         attendees,
       });

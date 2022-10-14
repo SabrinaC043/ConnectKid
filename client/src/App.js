@@ -11,6 +11,7 @@ import NavScrollExample from "./components/navbar";
 import { BrowserRouter } from "react-router-dom";
 import About from "./pages/about";
 import Signup from "./pages/signup";
+import FooterBottom from "./layouts/footer";
 function App() {
   
   const eCards = [
@@ -59,7 +60,9 @@ function App() {
           />
           <Route exact path='/signup' element={<Signup />} />
         </Routes>
+        {/* <NavScrollExample /> */}
       </BrowserRouter>
+      <FooterBottom />
     </ThemeProvider>
   );
 }
