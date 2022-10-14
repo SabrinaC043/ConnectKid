@@ -5,7 +5,7 @@ const secret = "shh";
 const expiration = "24h";
 
 module.exports = {
-    signToken: function({currentParent: {email}, parent}) {
+    signToken: function(email) {
         const paylaod = email;
         return jwt.sign({data: paylaod}, secret, {expiresIn: expiration})
     }
