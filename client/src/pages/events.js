@@ -20,14 +20,23 @@ const { loading, err, data } = useQuery(ALL_EVENTS);
     return(<p>Err</p>)
   }
 
+  
+
 const firstFeaturedIndex = data.events.map(event => event.isFeatured).indexOf(true);
 
 const firstFeaturedItem = data.events[firstFeaturedIndex];
+console.log(firstFeaturedIndex);
+const eventsWithoutFeatured = data.events.filter( (e, i) => i != firstFeaturedIndex);
+
+console.log(eventsWithoutFeatured);
+
+console.log('hello');
+
+
+console.log(data.events);
 
 
 
-
-// console.log(firstFeatured);
   
 
   return (
@@ -49,27 +58,22 @@ const firstFeaturedItem = data.events[firstFeaturedIndex];
         </Col>
 
 
+
       </Row>
 
-      {data.events.map( function(currentEvent, index) {
-        console.log(currentEvent);
-        if ( index === firstFeaturedIndex) {
-          <></>;
-        } else {
-          console.log('in here');
-          return(
-          <Col xs={6} md={4} key={index}>
+      {data.events.map( (currentEvent, index) => (
+        <Col xs={6} md={4} key={index}>
             <BasicCard
               title={currentEvent.name}
               date={currentEvent.date}
               />
-          </Col>)
-        }
-
-      })}
+          </Col>
+          )
+      )
+      }
       
 
-      {/* <Row>
+      <Row>
       <FeatureCard
         title={featuredCard.title}
         date={featuredCard.date}
@@ -77,7 +81,7 @@ const firstFeaturedItem = data.events[firstFeaturedIndex];
         text={featuredCard.text}
       />
       </Row>
-      {eventCards.map((card, i) => (
+      {/* {eventCards.map((card, i) => (
         <BasicCard key={i}
           title={card.title}
           date={card.date}
