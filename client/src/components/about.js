@@ -6,14 +6,12 @@ import Card from "react-bootstrap/Card";
 import backgroundImage from "../assets/images/eventBackground.jpg";
 import "../style/aboutstyle.css";
 
-
 const AboutInformation = () => {
-
   const backgroundStyle = {
     backgroundImage: `url(${backgroundImage})`,
     height: "max-content",
-    paddingBottom: "200px"
-  }
+    paddingBottom: "200px",
+  };
 
   return (
     <Container fluid className="text-center" style={backgroundStyle}>
@@ -21,7 +19,7 @@ const AboutInformation = () => {
         <Col
           xs={12}
           md={5}
-          className="border shadow"
+          className="border shadow bg-light"
           style={{ minHeight: "200px", minWidth: "200px" }}
         >
           <h2>Mission & Values</h2>
@@ -37,7 +35,7 @@ const AboutInformation = () => {
         <Col
           xs={12}
           md={5}
-          className="border shadow"
+          className="border shadow bg-light"
           style={{ minHeight: "200px", minWidth: "200px" }}
         >
           <h2>The Connectors Team Members</h2>
@@ -50,7 +48,7 @@ const AboutInformation = () => {
             <dd>
               <a href="https://github.com/Ehren-Lewis" target="_blank">
                 Ehren Lewis
-              </a>  
+              </a>
             </dd>
             <dd>
               <a href="https://github.com/BrettMiller47" target="_blank">
@@ -85,38 +83,36 @@ const AboutInformation = () => {
         <Col
           xs={12}
           md={5}
-          className="border shadow"
+          className="border shadow bg-light"
           style={{ minHeight: "200px", minWidth: "200px" }}
         >
           <h2>Who We Are</h2>
           <h3>Us Here at ConnectKids are just like you!</h3>
           <p>
-            We either have kids or some of us plan to have kids one day.
-            We desire a community where we can take our kids (or future kids)
-            to without having to worry if it's accessible, or if our kids
-            won't know anyone there.
+            We either have kids or some of us plan to have kids one day. We
+            desire a community where we can take our kids (or future kids) to
+            without having to worry if it's accessible, or if our kids won't
+            know anyone there.
           </p>
         </Col>
 
         <Col
           xs={12}
           md={5}
-          className="border shadow"
+          className="border shadow bg-light"
           style={{ minHeight: "200px", minWidth: "200px" }}
         >
           <h2>What We Provide</h2>
           <h3>We provide an easy way to track events</h3>
           <p>
-            We Use our event sourcing algorithms to find and provide
-            events in an easy to digest format, as well as setting up
-            attendence for each event so you don't have to worry about who is or isn't coming.
+            We Use our event sourcing algorithms to find and provide events in
+            an easy to digest format, as well as setting up attendence for each
+            event so you don't have to worry about who is or isn't coming.
           </p>
         </Col>
-
-        </Row>
+      </Row>
     </Container>
   );
 };
 
 export default AboutInformation;
-
