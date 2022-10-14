@@ -8,14 +8,10 @@ const eventSchema = new Schema({
 
   time: { type: Number },
 
-  date: {
-    type: Date,
-    default: Date.now
-  },
 
-  preparationTips: { type: String },
+    preparationTips: { type: String },
 
-  isFeatured: {type: Boolean, default: false},
+    featured: {type: Boolean, default: false}
 
   // attendees: [
   //   {
