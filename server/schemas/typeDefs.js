@@ -47,7 +47,7 @@ const typeDefs = gql`
       email: String!
       password: String!
       age: Int!
-      child: [String]
+      child: String
     ): Auth
 
     createEvent(
