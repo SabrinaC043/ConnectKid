@@ -61,12 +61,31 @@
     },
     {
         "name":" Dallas Zoo",
-        "location": " 650 South R.L. Thornton Freeway, TX 75202/n",
+        "location": " 650 South R.L. Thornton Freeway, TX 75202/n https://www.google.com/maps/place/Dallas+Zoo/@32.7405294,-96.818435,17z/data=!3m1!4b1!4m5!3m4!1s0x864e9996787fa081:0xe12b3f83f562c8d2!8m2!3d32.7405294!4d-96.816241",
         "time": 12, 
-        "date": "Oct 31, 2022", 
+        "date": "Oct 27, 2022", 
         "isFeatured": true , 
         "preparationTips": "How do I get to the Zoo?\n A:Located at 650 South R.L. Thornton Freeway in Dallas\n Via car:Exit at Marsalis Avenue from Interstate 35E. Our main entrance is located by the tall giraffe statue, on the northbound access road of I-35E.\n May I bring service animals into the Zoo?\nA: Yes, ADA compliant service animals are permitted./n Where can I find family restrooms?\n A: Family restrooms can be found in ZooNorth in the Wonders of the Wild Amphitheater. An additional family restroom is available in Simmons Safari Base Camp in the Giants of the Savanna.\n What rental items are available?\n A: You may bring your own strollers and wheelchairs, but they also are available to rent on a first come, first served basis at the Gift Shop.\n Costs \n Single stroller: $10 \nDouble stroller: $14 \n Manual wheelchair: $15 \n  Electric convenience vehicle with canopy: $35\nFor More Information Call 469.554.7462 "
-    }
+    },
+{
+"name": "Morgans WonderLand Trip!",
+"location":"Morgan’s Wonderland has a single location in San Antonio, Texas. \n We are located right off of I-35 and Wurzbach Parkway at 5223 David Edwards Drive, San Antonio, TX 78233.\n https://www.google.com/maps/dir/33.1610156,-96.631747/morgan's+inspiration+island/@31.3311175,-99.8022933,7z/data=!3m1!4b1!4m9!4m8!1m1!4e1!1m5!1m1!1s0x865c8ca6db6d0d5d:0xb4c78114419287d4!2m2!1d-98.3926044!2d29.5391049",
+"time": 10,
+"date": "Oct 31, 2022",
+"isFeatured": true , 
+"preparationTips": " Costs: Guests with Special Needs:Free\n Children 2 & Under:Free/nChildren Ages 3-17:$13\n Adult Ages 18-61:$19/n Military with Valid ID:$13\n Seniors 62+older:$13. /n What do I do if I need financial assistance to attend and take my family?\n  A: Check out our friends at Project Angel Fares\n Project Angel Fares is a 501c3 nonprofit created in 2012. Project Angel Fares serves to provide families who have a child with a disability or \n special need the opportunity to visit and enjoy the “Ultra-Accessible” theme parks of Morgan’s Wonderland and Morgan’s Inspiration Island located in  San Antonio, Texas. \n These families that would otherwise not be able to afford such a trip are provided with a 4 day, 3 night trip of a lifetime, with \n all travel expenses paid. \n We invite you to join us on our journey to give a child an experience of a lifetime!\n We do provide (1) one power scooter, and (2) two wheelchairs. \n If this will suffice all you will need to show is a valid ID in order to use the scooter/cruiser; if not already in use.\n We cannot guarantee that either of these chairs will be available during the time of your visit, as these chairs are leased on a first come first serve basis. \n Also, these chairs have a weight limit of 350 pounds. \n Do you have strollers for rent? \n A: No, you are welcome to bring your own. \n What sets Morgan's Wonderland apart from other theme parks?\n A: They specialize in INCLUSIVITY/n Morgan’s Wonderland is Ultra-Accessible™. While other theme parks accommodate people with disabilities and/or special needs, Morgan’s Wonderland was created with EVERYONE in mind./n  This unique park was created to enable everyone to come together and have fun, regardless of their abilities./n  However, instead of building a park and then making accommodations for individuals with special needs, /n  Morgan’s Wonderland team began by identifying what obstacles and barriers occur within the special-needs community./n Then designed our park to help individuals with special needs overcome those challenges and be able to have fun like those without limitations. /n Do you offer special services for guests with  vision loss and hearing impairments?/n A: Yes! Morgan’s Wonderland welcomes our friends with special needs! We offer many unique features such as Braille signage, a 3-D park model, and a service-animal rest area to make the park fun and accessible to our friends who have hearing loss and visual impairments. /n Do you allow service animals? /n Yes we sure do!/n Morgan's Mission and Values: To provide a fun, clean and beautiful environment free of physical and economic barriers that all individuals regardless of age, special need, or disability can come too and enjoy\n for additional questions call 210-495-5888" 
+
+},
+{
+
+    "name": ,
+    "location":,
+"time":,
+"date":"Oct 24, 2022",
+"isFeatured": true , 
+"preparationTips":""
+}
+
 
 ]
 
