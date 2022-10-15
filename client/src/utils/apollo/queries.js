@@ -15,5 +15,3 @@ query Events {
   }
 }
 `
-
-export { ALL_EVENTS }
