@@ -24,6 +24,7 @@ const typeDefs = gql`
     date: String
     isFeatured: Boolean
     preparationTips: String
+    eventDetails: String
     attendees: [ID]
   }
   type Query {
@@ -47,8 +48,9 @@ const typeDefs = gql`
       location: String!
       time: Int!
       date: String!
-      preparationTips: String,
+      preparationTips: String
       isFeatured: Boolean
+      eventDetails: String
       attendees: [ID]
     ): Event
 

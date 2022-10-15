@@ -11,6 +11,7 @@ query Events {
     date
     preparationTips
     isFeatured
+    eventDetails
   }
 }
 `

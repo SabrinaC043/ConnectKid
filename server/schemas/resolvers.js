@@ -42,7 +42,7 @@ const resolvers = {
     },
     createEvent: async (
       parent,
-      { name, location, time, date, isFeatured, preparationTips, attendees }
+      { name, location, time, date, isFeatured, preparationTips, attendees, eventDetails }
     ) => {
       return await Event.create({
         name,
@@ -52,6 +52,7 @@ const resolvers = {
         isFeatured,
         preparationTips,
         attendees,
+        eventDetails
       });
     },
 
