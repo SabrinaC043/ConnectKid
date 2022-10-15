@@ -33,7 +33,7 @@ const typeDefs = gql`
     parents: [Parent]!
     singleParent(email: String!): Parent
     events: [Event]!
-    singleEvent(name: String!): Event
+    singleEvent(id: ID!): Event
   }
 
   type Auth {

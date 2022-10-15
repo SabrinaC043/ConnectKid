@@ -14,11 +14,11 @@ const resolvers = {
       return await Parent.findOne({ email });
     },
     events: async () => {
-      return await Event.find({});
-      // .populate("attendees");
+      return await Event.find({}).populate("attendees");
     },
-    singleEvent: async (parent, { name }) => {
-      return await Event.findOne({ name });
+    singleEvent: async (parent, { id }) => {
+      const event = await Event.findById(id);
+      return event;
     },
   },
 
