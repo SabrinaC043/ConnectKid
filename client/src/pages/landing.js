@@ -7,7 +7,8 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Card from "react-bootstrap/Card";
 import Stack from "react-bootstrap/Stack";
-import backgroundImage from "../assets/images/eventBackground.jpg";
+import backgroundImage from "../assets/images/eventBackground.jpg"; 
+
 
 export default function Landing() {
   const backgroundStyle = {

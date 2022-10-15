@@ -4,11 +4,19 @@ import FeatureCard from "../components/cards/featureCard";
 import BasicCard from "../components/cards/card";
 import { useQuery } from "@apollo/client";
 import { ALL_EVENTS } from "../utils/apollo/queries";
-import { Row, Col, Container, Card } from "react-bootstrap";
+import { Row, Col, Container, Card } from "react-bootstrap"; 
+import eventImage from "../assets/images/event.jpg"; 
+
+
 
 export default function Events({ eventCards, featuredCard }) {
   const { loading, err, data } = useQuery(ALL_EVENTS);
-  const events = data?.events || [];
+  const events = data?.events || []; 
+  const backgroundLayout = { 
+    backgroundImage: 'url(${eventImage})', 
+    height: "max-content", 
+    paddingBottom: "200px", 
+  }
   //  events is array of events
   if (loading) {
     return <p>Loading</p>;
