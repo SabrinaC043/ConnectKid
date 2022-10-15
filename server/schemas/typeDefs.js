@@ -29,11 +29,16 @@ const typeDefs = gql`
     preparationTips: String
     attendees: [Parent]
   }
+  type Weekly {
+    tableTopics: String
+    quoteDay: String
+  }
   type Query {
     parents: [Parent]!
     singleParent(email: String!): Parent
     events: [Event]!
     singleEvent(id: ID!): Event
+    weekly: [Weekly]!
   }
 
   type Auth {
