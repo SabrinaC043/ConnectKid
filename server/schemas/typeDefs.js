@@ -27,7 +27,7 @@ const typeDefs = gql`
     date: String
     isFeatured: Boolean
     preparationTips: String
-    attendees: [ID]
+    attendees: [Parent]
   }
   type Query {
     parents: [Parent]!
