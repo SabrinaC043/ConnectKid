@@ -20,6 +20,8 @@ const { loading, err, data } = useQuery(ALL_EVENTS);
     return(<p>Err</p>)
   }
 
+  if ( data ) {
+
 const firstFeaturedIndex = data.events.map(event => event.isFeatured).indexOf(true);
 
 const firstFeaturedItem = data.events[firstFeaturedIndex];
@@ -87,4 +89,5 @@ const firstFeaturedItem = data.events[firstFeaturedIndex];
       ))} */}
     </>
   );
+    }
 }

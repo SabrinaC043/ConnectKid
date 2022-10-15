@@ -24,7 +24,7 @@ function NavScrollExample() {
             <LinkContainer to="/events">
             <Nav.Link href="#action2">Events</Nav.Link>
             </LinkContainer>
-            <LinkContainer to="weeklyinspiration">
+            <LinkContainer to="/inspiration">
             <Nav.Link href="#">Weekly Inspiration</Nav.Link>
             </LinkContainer>
           </Nav>

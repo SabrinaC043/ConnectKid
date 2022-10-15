@@ -12,6 +12,7 @@ import { BrowserRouter } from "react-router-dom";
 import About from "./pages/about";
 import Signup from "./pages/signup";
 import FooterBottom from "./layouts/footer";
+import ParentSignUp from "./components/forms/parentSignUp";
 function App() {
   
   const eCards = [
@@ -59,6 +60,7 @@ function App() {
             }
           />
           <Route exact path='/signup' element={<Signup />} />
+          <Route exact path="/inspiration" element={<ParentSignUp />} />
         </Routes>
         {/* <NavScrollExample /> */}
       </BrowserRouter>
