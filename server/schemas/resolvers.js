@@ -1,9 +1,10 @@
-const { Parent, Event, Child } = require("../models");
+const { Parent, Event, Child, Weekly } = require("../models");
 
 const { AuthenticationError } = require("apollo-server-express");
 const { signToken } = require("../utils/auth");
 const { pathToArray } = require("graphql/jsutils/Path");
 const { JsonWebTokenError } = require("jsonwebtoken");
+
 const resolvers = {
   Query: {
     parents: async () => {
@@ -20,6 +21,10 @@ const resolvers = {
       const event = await Event.findById(id).populate("attendees");
       return event;
     },
+    weekly: async () => {
+      return await Weekly.find({});
+    },
+
   },
 
   Mutation: {
