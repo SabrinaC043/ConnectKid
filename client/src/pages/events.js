@@ -10,7 +10,9 @@ import {Row, Col, Container, Card} from 'react-bootstrap'
 export default function Events({eventCards, featuredCard}) {
 
 
-const { loading, err, data } = useQuery(ALL_EVENTS);
+const { loading, err, data } = useQuery(ALL_EVENTS); 
+const events= data?.events || []; 
+
 
   if (loading) {
     return(<p>Loading</p>)
@@ -18,11 +20,13 @@ const { loading, err, data } = useQuery(ALL_EVENTS);
 
   if (err) {
     return(<p>Err</p>)
-  }
+  } 
+  console.log(events) 
 
   
 
-const firstFeaturedIndex = data.events.map(event => event.isFeatured).indexOf(true);
+const firstFeaturedIndex = events.map(event => event.isFeatured).indexOf(true); 
+
 
 const firstFeaturedItem = data.events[firstFeaturedIndex];
 console.log(firstFeaturedIndex);
