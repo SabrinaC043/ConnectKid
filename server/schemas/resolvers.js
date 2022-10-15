@@ -1,4 +1,4 @@
-const { Parent, Event } = require("../models");
+const { Parent, Event, Child } = require("../models");
 
 const { AuthenticationError } = require("apollo-server-express");
 const { signToken } = require("../utils/auth");
@@ -14,16 +14,15 @@ const resolvers = {
       return await Parent.findOne({ email });
     },
     events: async () => {
-      return await Event.find({})
-      // .populate("attendees");
+      return await Event.find({});
     },
-    singleEvent: async (parent, { name }) => {
-      return await Event.findOne({ name });
+    singleEvent: async (parent, { id }) => {
+      const event = await Event.findById(id).populate("attendees");
+      return event;
     },
   },
 
   Mutation: {
-
     createParent: async (
       parent,
       { firstName, lastName, email, password, age, child }
@@ -40,6 +39,29 @@ const resolvers = {
       const token = signToken(email);
       return { parent: newParent, token };
     },
+    createChild: async (
+      parent,
+      { firstName, lastName, age, interests, gender, parentId },
+      context
+    ) => {
+      // if (context.user) {
+      const child = new Child({
+        firstName,
+        lastName,
+        age,
+        interests,
+        gender,
+      });
+
+      await Parent.findByIdAndUpdate(parentId, {
+        $addToSet: { child: child },
+      });
+
+      return child;
+
+      // throw new AuthenticationError("Not logged in");
+    },
+
     createEvent: async (
       parent,
       { name, location, time, date, isFeatured, preparationTips, attendees }
@@ -53,6 +75,13 @@ const resolvers = {
         preparationTips,
         attendees,
       });
+    },
+    addParentToEvent: async (parent, { parentId, eventId }) => {
+      return await Event.findOneAndUpdate(
+        { _id: eventId },
+        { $addToSet: { attendees: parentId } },
+        { new: true }
+      );
     },
 
     logIn: async (parent, { email, password }) => {
@@ -68,12 +97,10 @@ const resolvers = {
         throw new AuthenticationError("Incorrect email or password");
       }
 
+      const token = signToken({ email });
 
-    const token = signToken({email});
-
-    return { parent: currentParent, token}
-  }
-}
-  
+      return { parent: currentParent, token };
+    },
+  },
 };
 module.exports = resolvers;
