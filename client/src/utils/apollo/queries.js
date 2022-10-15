@@ -1,17 +1,14 @@
-import { gql } from "@apollo/client"; 
-
-
+import { gql } from "@apollo/client";
 
 export const ALL_EVENTS = gql`
-query Events {
-  events {
-    name
-    location
-    time
-    preparationTips
-    isFeatured  
+  query allEvents {
+    events {
+      name
+      location
+      time
+      date
+      preparationTips
+      isFeatured
+    }
   }
-}
-`
-
-//export { ALL_EVENTS }
+`;

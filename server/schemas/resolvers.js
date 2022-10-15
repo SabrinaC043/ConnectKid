@@ -15,10 +15,10 @@ const resolvers = {
     },
     events: async () => {
       return await Event.find({});
-      // .populate("attendees");
     },
-    singleEvent: async (parent, { name }) => {
-      return await Event.findOne({ name });
+    singleEvent: async (parent, { id }) => {
+      const event = await Event.findById(id).populate("attendees");
+      return event;
     },
   },
 
@@ -80,7 +80,7 @@ const resolvers = {
       return await Event.findOneAndUpdate(
         { _id: eventId },
         { $addToSet: { attendees: parentId } },
-        { new: true, runValidators: true }
+        { new: true }
       );
     },
 
