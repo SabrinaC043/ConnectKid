@@ -27,6 +27,7 @@ const typeDefs = gql`
     date: String
     isFeatured: Boolean
     preparationTips: String
+    eventDetails: String
     attendees: [Parent]
   }
   type Weekly {
@@ -72,10 +73,11 @@ const typeDefs = gql`
       date: String!
       preparationTips: String
       isFeatured: Boolean
+      eventDetails: String
       attendees: [ID]
     ): Event
 
-    addParentToEvent(parentId: ID!, eventId: ID!): Event
+    addParentToEvent(eventId: ID!, parentId: ID!): Event
 
     logIn(email: String!, password: String!): Auth
   }

@@ -1,17 +1,28 @@
 import { gql } from "@apollo/client";
+
 // For all Events
+
 export const ALL_EVENTS = gql`
-  query allEvents {
-    events {
-      name
-      location
-      time
-      date
-      preparationTips
-      isFeatured
+query Events {
+  events {
+    _id
+    name
+    location
+    time
+    date
+    preparationTips
+    isFeatured
+    eventDetails
+    attendees {
+      firstName
+      lastName
     }
   }
+
+}
 `;
+
+
 // For home page first card
 export const WEEKLY = gql`
   query allWeeklies {
@@ -22,3 +33,4 @@ export const WEEKLY = gql`
     }
   }
 `;
+
