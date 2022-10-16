@@ -2,7 +2,7 @@ import Card from "react-bootstrap/Card";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { Container } from "react-bootstrap";
-
+import React from 'react';
 export default function SidebarCard(props) {
   return (
 

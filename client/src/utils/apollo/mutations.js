@@ -14,4 +14,18 @@ mutation CreateParent($firstName: String!, $lastName: String!, $email: String!, 
   }
 }
 `
-export  { CREATE_PARENT };
+
+const ADD_PARENT_TO_EVENT = gql`
+mutation Mutation {
+  addParentToEvent {
+    name
+    location
+    attendees {
+      _id
+
+    }
+  }
+}
+`
+
+export  { CREATE_PARENT, ADD_PARENT_TO_EVENT };

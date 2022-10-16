@@ -1,14 +1,19 @@
 import React from "react";
 import Sidebar from "../components/Sidebar/index";
 import FeatureCard from "../components/cards/featureCard";
-import BasicCard from "../components/cards/card";
+import EventCard from "../components/cards/eventCard";
 import { useQuery } from "@apollo/client";
 import { ALL_EVENTS } from "../utils/apollo/queries";
 import { Row, Col, Container, Card } from "react-bootstrap";
 
 export default function Events({ eventCards, featuredCard }) {
+
+
   const { loading, err, data } = useQuery(ALL_EVENTS);
-  const events = data?.events || [];
+
+  // const events = data?.events || [];
+
+
   //  events is array of events
   if (loading) {
     return <p>Loading</p>;
@@ -17,6 +22,8 @@ export default function Events({ eventCards, featuredCard }) {
   if (err) {
     return <p>Err</p>;
   }
+
+  const events = data.events;
   console.log(events);
 
   const firstFeaturedIndex = events
@@ -24,7 +31,6 @@ export default function Events({ eventCards, featuredCard }) {
     .indexOf(true);
 
   const firstFeaturedItem = data.events[firstFeaturedIndex];
-  console.log(firstFeaturedIndex);
   const eventsWithoutFeatured = data.events.filter(
     (e, i) => i !== firstFeaturedIndex
   );
@@ -47,11 +53,13 @@ export default function Events({ eventCards, featuredCard }) {
 
         <Row>
           {eventsWithoutFeatured.map((currentEvent, index) => (
-            <Col xs={6} md={4} key={index}>
-              <BasicCard
+            <Col xs={12} sm={6} md={6} lg={4} key={index}>
+              <EventCard
+              eventId={currentEvent._id}
                 title={currentEvent.name}
                 date={currentEvent.date}
                 location={currentEvent.location}
+                attendees={currentEvent.attendees}
               />
             </Col>
           ))}

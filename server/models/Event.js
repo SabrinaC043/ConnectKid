@@ -13,7 +13,7 @@ const eventSchema = new Schema({
 
   isFeatured: {type: Boolean, default: false},
 
-  eventDetails: {type: String}
+  eventDetails: {type: String},
 
   attendees: [
     {

@@ -1,10 +1,18 @@
 import decode from "jwt-decode";
 
-class AuthSerice {
+class AuthService {
 
+    verify() {
+
+    }
+
+    getToken () {
+        return localStorage.getItem("_id")
+    }
 
     getInfo(){
 
+        return decode(localStorage.getItem("_id"))
 
     }
 

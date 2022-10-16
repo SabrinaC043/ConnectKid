@@ -15,7 +15,7 @@ const resolvers = {
       return await Parent.findOne({ email });
     },
     events: async () => {
-      return await Event.find({});
+      return await Event.find({}).populate("attendees");
     },
     singleEvent: async (parent, { id }) => {
       const event = await Event.findById(id).populate("attendees");
@@ -41,7 +41,9 @@ const resolvers = {
         child,
       });
 
-      const token = signToken(email);
+      const id = newParent._id;
+
+      const token = signToken({firstName, lastName, id, email});
       return { parent: newParent, token };
     },
     createChild: async (
@@ -103,7 +105,9 @@ const resolvers = {
         throw new AuthenticationError("Incorrect email or password");
       }
 
-      const token = signToken({ email });
+      const { firstName, lastName, _id } = currentParent
+
+      const token = signToken({ _id, firstName, lastName, email });
 
       return { parent: currentParent, token };
     },

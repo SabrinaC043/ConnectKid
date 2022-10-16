@@ -2,9 +2,10 @@ import { gql } from "@apollo/client";
 
 
 
-const ALL_EVENTS = gql`
+export const ALL_EVENTS = gql`
 query Events {
   events {
+    _id
     name
     location
     time
@@ -12,6 +13,10 @@ query Events {
     preparationTips
     isFeatured
     eventDetails
+    attendees {
+      firstName
+      lastName
+    }
   }
 }
 `

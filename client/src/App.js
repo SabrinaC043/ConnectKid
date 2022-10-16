@@ -1,7 +1,7 @@
 import "./App.css";
 
 import { Link, BrowserRouter as Router, Routes, Route } from "react-router-dom";
-
+import React from 'react';
 // Components
 import ThemeProvider from "./utils/ThemeContext";
 import ThemeButton from "./components/ThemeButton/index";
