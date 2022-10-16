@@ -1,15 +1,15 @@
-const { Schema } = require("mongoose");
+const { Schema, model } = require("mongoose");
 
 const childSchema = new Schema({
-  firstName: { 
+  firstName: {
     type: String,
     required: [true, "A child must have a name!"],
-    trim: true
- },
+    trim: true,
+  },
   lastName: {
     type: String,
-    required:true,
-    trim: true
+    required: true,
+    trim: true,
   },
   age: {
     type: Number,
@@ -17,6 +17,9 @@ const childSchema = new Schema({
     max: [2, "Age must have 2 digits maximum."],
   },
   interests: [{ type: String }],
-  gender: { type: String }
+  gender: { type: String },
 });
-module.exports = childSchema;
+
+const Child = model("child", childSchema);
+
+module.exports = Child;

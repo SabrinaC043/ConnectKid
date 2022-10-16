@@ -1,15 +1,32 @@
 import decode from "jwt-decode";
 
-class AuthSerice {
+class AuthService {
 
+    verify() {
+
+    }
+
+    getToken () {
+        return localStorage.getItem("_id")
+    }
 
     getInfo(){
 
+        return decode(localStorage.getItem("_id"))
 
     }
 
     isLoggedIn() {
 
+        const token = localStorage.getItem("_id");
+
+        return token ? true : false
+
+    }
+
+    isExpired() {
+        const token = decode(localStorage.getItem("_id"))
+        return Date.now() >= token.exp * 1000
     }
 
 
