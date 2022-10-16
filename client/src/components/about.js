@@ -2,25 +2,27 @@ import React from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import Card from "react-bootstrap/Card";
 import backgroundImage from "../assets/images/eventBackground.jpg";
 import "../style/aboutstyle.css";
 
 const AboutInformation = () => {
   const backgroundStyle = {
     backgroundImage: `url(${backgroundImage})`,
-    height: "max-content",
-    paddingBottom: "200px",
+    // height: "max-content",
+    height:"100%",
+    paddingBottom: "50px",
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat"
   };
 
   return (
     <Container fluid className="text-center" style={backgroundStyle}>
-      <Row className="justify-content-around" style={{ paddingTop: "200px" }}>
+      <Row className="justify-content-around">
         <Col
-          xs={12}
+          xs={11}
           md={5}
           className="border shadow bg-light"
-          style={{ minHeight: "200px", minWidth: "200px" }}
+          style={{ minHeight: "200px", minWidth: "200px", marginTop: "200px" }}
         >
           <h2>Mission & Values</h2>
           <h3>We're on a mission to bring families together</h3>
@@ -33,45 +35,45 @@ const AboutInformation = () => {
           </p>
         </Col>
         <Col
-          xs={12}
+          xs={11}
           md={5}
           className="border shadow bg-light"
-          style={{ minHeight: "200px", minWidth: "200px" }}
+          style={{ minHeight: "200px", minWidth: "200px", marginTop: "200px"  }}
         >
           <h2>The Connectors Team Members</h2>
           <ul style={{ listType: "none" }}>
             <dd>
-              <a href="https://github.com/SabrinaC043" target="_blank">
+              <a href="https://github.com/SabrinaC043" target="_blank" rel="noopener noreferrer">
                 Sabrina Carrion
               </a>
             </dd>
             <dd>
-              <a href="https://github.com/Ehren-Lewis" target="_blank">
+              <a href="https://github.com/Ehren-Lewis" target="_blank" rel="noopener noreferrer">
                 Ehren Lewis
               </a>
             </dd>
             <dd>
-              <a href="https://github.com/BrettMiller47" target="_blank">
+              <a href="https://github.com/BrettMiller47" target="_blank" rel="noopener noreferrer">
                 Brett Miller
               </a>
             </dd>
             <dd>
-              <a href="https://github.com/jeffbone95" target="_blank">
+              <a href="https://github.com/jeffbone95" target="_blank" rel="noopener noreferrer">
                 Jeffery Willingham
               </a>
             </dd>
             <dd>
-              <a href="https://github.com/MikeTigray" target="_blank">
+              <a href="https://github.com/MikeTigray" target="_blank" rel="noopener noreferrer">
                 Micheale Abay
               </a>
             </dd>
             <dd>
-              <a href="https://github.com/vianvianc" target="_blank">
+              <a href="https://github.com/vianvianc" target="_blank" rel="noopener noreferrer">
                 Vian Charbonneau
               </a>
             </dd>
             <dd>
-              <a href="https://github.com/GranSpencer09" target="_blank">
+              <a href="https://github.com/GranSpencer09" target="_blank" rel="noopener noreferrer">
                 Spencer Gran
               </a>
             </dd>
@@ -79,12 +81,12 @@ const AboutInformation = () => {
         </Col>
       </Row>
 
-      <Row className="justify-content-around" style={{ paddingTop: "200px" }}>
+      <Row className="justify-content-around">
         <Col
-          xs={12}
+          xs={11}
           md={5}
           className="border shadow bg-light"
-          style={{ minHeight: "200px", minWidth: "200px" }}
+          style={{ minHeight: "200px", minWidth: "200px", marginTop: "200px"  }}
         >
           <h2>Who We Are</h2>
           <h3>Us Here at ConnectKids are just like you!</h3>
@@ -97,10 +99,10 @@ const AboutInformation = () => {
         </Col>
 
         <Col
-          xs={12}
+          xs={11}
           md={5}
           className="border shadow bg-light"
-          style={{ minHeight: "200px", minWidth: "200px" }}
+          style={{ minHeight: "200px", minWidth: "200px",marginTop: "200px"  }}
         >
           <h2>What We Provide</h2>
           <h3>We provide an easy way to track events</h3>

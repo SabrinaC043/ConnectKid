@@ -7,16 +7,20 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Card from "react-bootstrap/Card";
 import Stack from "react-bootstrap/Stack";
-import backgroundImage from "../assets/images/eventBackground.jpg";
+import backgroundImage from "../assets/images/handsConnect.jpg";
 
 export default function Landing() {
   const backgroundStyle = {
     backgroundImage: `url(${backgroundImage})`,
-    height: "max-content",
+    height: "100%",
     paddingBottom: "200px",
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat",
+
   };
   return (
-    <Container fluid className="text-center" style={backgroundStyle}>
+    <div style={backgroundStyle}>
+    <Container fluid className="text-center">
       <Row className="align-items-center" style={{ paddingTop: "100px" }}>
         <Col>
           <Stack gap={1}>
@@ -43,5 +47,6 @@ export default function Landing() {
         </Col>
       </Row>
     </Container>
+    </div>
   );
 }
