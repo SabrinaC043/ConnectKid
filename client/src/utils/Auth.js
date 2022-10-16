@@ -18,10 +18,15 @@ class AuthService {
 
     isLoggedIn() {
 
-        const currentToken = localStorage.getItem("_id")
+        const token = localStorage.getItem("_id");
 
-        // const decodedToken = 
+        return token ? true : false
 
+    }
+
+    isExpired() {
+        const token = decode(localStorage.getItem("_id"))
+        return Date.now() >= token.exp * 1000
     }
 
 

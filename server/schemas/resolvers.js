@@ -4,6 +4,7 @@ const { AuthenticationError } = require("apollo-server-express");
 const { signToken } = require("../utils/auth");
 const { pathToArray } = require("graphql/jsutils/Path");
 const { JsonWebTokenError } = require("jsonwebtoken");
+const { Types } = require("mongoose");
 
 const resolvers = {
   Query: {
@@ -86,8 +87,8 @@ const resolvers = {
     },
     addParentToEvent: async (parent, { parentId, eventId }) => {
       return await Event.findOneAndUpdate(
-        { _id: eventId },
-        { $addToSet: { attendees: parentId } },
+        { _id: Types.ObjectId(eventId) },
+        { $addToSet: { attendees: Types.ObjectId(parentId) } },
         { new: true }
       );
     },

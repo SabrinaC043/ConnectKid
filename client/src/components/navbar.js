@@ -13,8 +13,7 @@ function NavScrollExample() {
 
   return (
     <Navbar bg="light" expand="lg">
-      {/* <Container fluid> */}
-        <Navbar.Brand href="#">ConnectKid</Navbar.Brand>
+      {/* <Container fluid> */}        <Navbar.Brand href="#">ConnectKid</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav
@@ -31,17 +30,13 @@ function NavScrollExample() {
             <LinkContainer to="/events">
             <Nav.Link href="#action2">Events</Nav.Link>
             </LinkContainer>
-            <LinkContainer to="weeklyinspiration">
-            <Nav.Link href="#">Weekly Inspiration</Nav.Link>
-            </LinkContainer>
           </Nav>
           <Nav className='d-flex'>
             <LinkContainer to="/signup">
-              <Nav.Link>Sign Up/In</Nav.Link>
+              <Nav.Link>Sign Up</Nav.Link>
             </LinkContainer>
           </Nav>
         </Navbar.Collapse>
-      {/* </Container> */}
     </Navbar>
   );
 }
