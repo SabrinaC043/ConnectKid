@@ -25,7 +25,6 @@ const { loading, err, data } = useQuery(ALL_EVENTS);
 const firstFeaturedIndex = data.events.map(event => event.isFeatured).indexOf(true);
 
 const firstFeaturedItem = data.events[firstFeaturedIndex];
-console.log(firstFeaturedIndex);
 const eventsWithoutFeatured = data.events.filter( (e, i) => i !== firstFeaturedIndex);
 
 
@@ -82,4 +81,3 @@ const eventsWithoutFeatured = data.events.filter( (e, i) => i !== firstFeaturedI
     </>
   );
     }
-}
