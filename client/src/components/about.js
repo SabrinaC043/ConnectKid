@@ -23,7 +23,9 @@ const AboutInformation = () => {
           style={{ minHeight: "200px", minWidth: "200px" }}
         >
           <h2>Mission & Values</h2>
+          <br></br>
           <h3>We're on a mission to bring families together</h3>
+          <br></br>
           <p>
             We value inclusion and accessibility for all kids and parents. Our
             team seeks to provide transparent information about events local to

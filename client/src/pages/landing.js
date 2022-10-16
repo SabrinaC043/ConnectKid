@@ -17,6 +17,7 @@ export default function Landing() {
   };
   return (
     <Container fluid className="text-center" style={backgroundStyle}>
+      <Sidebar />
       <Row className="align-items-center" style={{ paddingTop: "100px" }}>
         <Col>
           <Stack gap={1}>

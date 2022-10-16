@@ -13,32 +13,29 @@ import About from "./pages/about";
 import Signup from "./pages/signup";
 import FooterBottom from "./layouts/footer";
 function App() {
-  
   const eCards = [
     {
-      title: 'Title1',
-      date: 'date1',
-      time: 'time1',
-      text: 'text1'
+      title: "Title1",
+      date: "date1",
+      time: "time1",
+      text: "text1",
     },
     {
-      title: 'Title2',
-      date: 'date2',
-      time: 'time2',
-      text: 'text2'
+      title: "Title2",
+      date: "date2",
+      time: "time2",
+      text: "text2",
     },
-  ]; 
+  ];
 
   const fCard = {
-    title: 'Title1',
-    date: 'date1',
-    time: 'time1',
-    text: 'text1'
+    title: "Title1",
+    date: "date1",
+    time: "time1",
+    text: "text1",
   };
-  
-  return (
-    
 
+  return (
     // <UserForm />
     // <FeatureCard title="Online event" date="11/5/22" time="6:00 MDT" text="This event will be taking place on November 5th, online for ease of access. I am very excited to say that I'll be attending in full power!" />
     // <NavScrollExample />
@@ -51,14 +48,9 @@ function App() {
           <Route
             exact
             path="/events"
-            element={
-              <Events
-                eventCards={eCards}
-                featuredCard={fCard}
-              />
-            }
+            element={<Events eventCards={eCards} featuredCard={fCard} />}
           />
-          <Route exact path='/signup' element={<Signup />} />
+          <Route exact path="/signup" element={<Signup />} />
         </Routes>
         {/* <NavScrollExample /> */}
       </BrowserRouter>
