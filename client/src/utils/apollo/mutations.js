@@ -16,16 +16,14 @@ mutation CreateParent($firstName: String!, $lastName: String!, $email: String!, 
 `
 
 const ADD_PARENT_TO_EVENT = gql`
-mutation Mutation {
-  addParentToEvent {
+mutation Mutation($parentId: ID!, $eventId: ID!) {
+  addParentToEvent(parentId: $parentId, eventId: $eventId) {
     name
-    location
     attendees {
       _id
-
     }
   }
-}
+}  
 `
 
 export  { CREATE_PARENT, ADD_PARENT_TO_EVENT };

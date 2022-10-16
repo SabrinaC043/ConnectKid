@@ -18,6 +18,10 @@ class AuthService {
 
     isLoggedIn() {
 
+        const currentToken = localStorage.getItem("_id")
+
+        // const decodedToken = 
+
     }
 
 

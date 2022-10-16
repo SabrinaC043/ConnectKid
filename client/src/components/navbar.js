@@ -1,9 +1,16 @@
+
+import React, { useState } from 'react';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { LinkContainer } from 'react-router-bootstrap';
-import React from 'react';
+import AuthService from "../utils/Auth";
 function NavScrollExample() {
+
+  const [loggedIn, setLoggedIn] = useState(
+    // AuthService.isLoggedIn();
+  );
+
   return (
     <Navbar bg="light" expand="lg">
       {/* <Container fluid> */}

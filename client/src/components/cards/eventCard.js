@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import Card from "react-bootstrap/Card";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -12,15 +12,18 @@ import AuthService from "../../utils/Auth"
 import { ADD_PARENT_TO_EVENT } from "../../utils/apollo/mutations";
 import { useMutation } from '@apollo/client';
 const EventCard = (props) => {
+    // console.log(props.attendees);
 
     const userData = AuthService.getInfo();
 
     const [addParentToEvent, { loading, error }] = useMutation(ADD_PARENT_TO_EVENT);
 
+    // const arrOfAttendees = props.attendees ? props.attendees.map
     const onAdd = async (e) => {
         e.preventDefault();
         // console.log(typeof userData.data.id);
         const { data } = await addParentToEvent({variables: {eventId: props.eventId, parentId: userData.data.id}})
+        window.location.reload();
         // console.log(data);
         // console.log("clicked")
     }
