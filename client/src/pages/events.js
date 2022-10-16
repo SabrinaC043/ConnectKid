@@ -20,55 +20,46 @@ const { loading, err, data } = useQuery(ALL_EVENTS);
     return(<p>Err</p>)
   }
 
-  if ( data ) {
+  
 
 const firstFeaturedIndex = data.events.map(event => event.isFeatured).indexOf(true);
 
 const firstFeaturedItem = data.events[firstFeaturedIndex];
+console.log(firstFeaturedIndex);
+const eventsWithoutFeatured = data.events.filter( (e, i) => i !== firstFeaturedIndex);
 
 
-
-
-// console.log(firstFeatured);
   
 
   return (
     <>
-      {/* <Sidebar /> */}
+      <Sidebar />
 
+    <Container>
       <Row>
-
-        <Col xs={12} md={6}>
-
+        <Col xs={12} md={4} className="mx-auto">
           <FeatureCard
             title={firstFeaturedItem.name}
             date={firstFeaturedItem.date}
             text="This is our first featured event!"
             // locatio needs to be added
-
             />
-
         </Col>
-
-
       </Row>
-
-      {data.events.map( function(currentEvent, index) {
-        console.log(currentEvent);
-        if ( index === firstFeaturedIndex) {
-          <></>;
-        } else {
-          console.log('in here');
-          return(
+    
+    <Row>
+      {eventsWithoutFeatured.map( (currentEvent, index) => (
           <Col xs={6} md={4} key={index}>
             <BasicCard
               title={currentEvent.name}
               date={currentEvent.date}
+              location={currentEvent.location}
               />
-          </Col>)
-        }
+          </Col>
+      ))
+      }
 
-      })}
+    </Row>
       
 
       {/* <Row>
@@ -78,8 +69,8 @@ const firstFeaturedItem = data.events[firstFeaturedIndex];
         time={featuredCard.time}
         text={featuredCard.text}
       />
-      </Row>
-      {eventCards.map((card, i) => (
+      </Row> */}
+      {/* {eventCards.map((card, i) => (
         <BasicCard key={i}
           title={card.title}
           date={card.date}
@@ -87,6 +78,7 @@ const firstFeaturedItem = data.events[firstFeaturedIndex];
           text={card.text}
           />
       ))} */}
+      </Container>
     </>
   );
     }

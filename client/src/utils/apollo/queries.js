@@ -10,7 +10,6 @@ query Events {
     time
     date
     preparationTips
-    attendees
     isFeatured
   }
 }
