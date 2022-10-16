@@ -14,7 +14,7 @@ const EventCard = (props) => {
     const [addParentToEvent] = useMutation(ADD_PARENT_TO_EVENT);
 
     const zoomRegex = new RegExp("^https://")
-    const endRegex = new RegExp("(.*?)TX")
+    const endRegex = new RegExp("(.*?)[A-Z]{2}")
 
     // const arrOfAttendees = props.attendees ? props.attendees.map
     const onAdd = async (e) => {

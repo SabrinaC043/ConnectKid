@@ -16,7 +16,8 @@ export default function Landing() {
   let index = Math.floor(Math.random() * 12);
 
   const { loading, err, data } = useQuery(WEEKLY);
-  const weekly = data?.weekly || [];
+  // const weekly = data?.weekly || [];
+  // const weekly = data.weekly;
   if (loading) {
     return <p>Loading</p>;
   }
@@ -24,7 +25,7 @@ export default function Landing() {
   if (err) {
     return <p>Err</p>;
   }
-  console.log(weekly);
+  // console.log(weekly);
 
   const backgroundStyle = {
     backgroundImage: `url(${backgroundImage})`,
@@ -41,7 +42,7 @@ export default function Landing() {
               md={5}
               style={{ minHeight: "200px", minWidth: "100px" }}
             >
-              <Card style={{ minHeight: "100px", minWidth: "200px" }}>
+              {/* <Card style={{ minHeight: "100px", minWidth: "200px" }}> 
                 <FeatureCard
                   author={weekly[index].author}
                   tableTopics={weekly[index].tableTopics}
@@ -49,7 +50,7 @@ export default function Landing() {
                   conversationStarters="Conversation Starters"
                   quoteOfTheDay="Quote of the Day"
                 />
-              </Card>
+              </Card> */}
             </div>
             <div>
               <Card style={{ minHeight: "100px", minWidth: "100px" }}>
