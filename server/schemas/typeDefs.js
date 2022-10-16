@@ -62,7 +62,6 @@ const typeDefs = gql`
       age: Int
       interests: [String]
       gender: String
-      parentId: ID
     ): Child
 
     createEvent(

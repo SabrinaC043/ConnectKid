@@ -24,7 +24,6 @@ const resolvers = {
     weekly: async () => {
       return await Weekly.find({});
     },
-
   },
 
   Mutation: {
@@ -43,7 +42,7 @@ const resolvers = {
 
       const id = newParent._id;
 
-      const token = signToken({firstName, lastName, id, email});
+      const token = signToken({ firstName, lastName, id, email });
       return { parent: newParent, token };
     },
     createChild: async (
@@ -51,27 +50,37 @@ const resolvers = {
       { firstName, lastName, age, interests, gender, parentId },
       context
     ) => {
-      // if (context.user) {
-      const child = new Child({
-        firstName,
-        lastName,
-        age,
-        interests,
-        gender,
-      });
+      if (context.user) {
+        const child = new Child({
+          firstName,
+          lastName,
+          age,
+          interests,
+          gender,
+        });
 
-      await Parent.findByIdAndUpdate(parentId, {
-        $addToSet: { child: child },
-      });
+        await Parent.findByIdAndUpdate(parentId, {
+          $addToSet: { child: child },
+        });
 
-      return child;
+        return child;
+      }
 
-      // throw new AuthenticationError("Not logged in");
+      throw new AuthenticationError("Not logged in");
     },
 
     createEvent: async (
       parent,
-      { name, location, time, date, isFeatured, preparationTips, attendees, eventDetails }
+      {
+        name,
+        location,
+        time,
+        date,
+        isFeatured,
+        preparationTips,
+        attendees,
+        eventDetails,
+      }
     ) => {
       return await Event.create({
         name,
@@ -81,7 +90,7 @@ const resolvers = {
         isFeatured,
         preparationTips,
         attendees,
-        eventDetails
+        eventDetails,
       });
     },
     addParentToEvent: async (parent, { parentId, eventId }) => {
@@ -105,7 +114,7 @@ const resolvers = {
         throw new AuthenticationError("Incorrect email or password");
       }
 
-      const { firstName, lastName, _id } = currentParent
+      const { firstName, lastName, _id } = currentParent;
 
       const token = signToken({ _id, firstName, lastName, email });
 
