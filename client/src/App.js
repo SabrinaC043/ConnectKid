@@ -1,7 +1,13 @@
 import "./App.css";
 
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
+
+import { Link, BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
+
+
 import React from 'react';
+
 // Components
 import ThemeProvider from "./utils/ThemeContext";
 import ThemeButton from "./components/ThemeButton/index";
@@ -11,10 +17,12 @@ import NavScrollExample from "./components/navbar";
 import About from "./pages/about";
 import Signup from "./pages/signup";
 import FooterBottom from "./layouts/footer";
+
 import AuthService from "./utils/Auth";
 import ParentLogIn from "./components/forms/parentLogin";
+
 function App() {
-  
+
   const eCards = [
     {
       title: 'Title1',
@@ -28,7 +36,7 @@ function App() {
       time: 'time2',
       text: 'text2'
     },
-  ]; 
+  ];
 
   const fCard = {
     title: 'Title1',
@@ -36,6 +44,8 @@ function App() {
     time: 'time1',
     text: 'text1'
   };
+
+
 
   const auth = (nextState, replace, next) => {
     const isLoggedIn = AuthService.isLoggedIn();
@@ -47,8 +57,9 @@ function App() {
     }
   }
   
+
   return (
-    
+
 
     // <UserForm />
     // <FeatureCard title="Online event" date="11/5/22" time="6:00 MDT" text="This event will be taking place on November 5th, online for ease of access. I am very excited to say that I'll be attending in full power!" />

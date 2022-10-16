@@ -33,6 +33,7 @@ const typeDefs = gql`
   type Weekly {
     tableTopics: String
     quoteDay: String
+    author:String
   }
   type Query {
     parents: [Parent]!
