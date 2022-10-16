@@ -1,16 +1,28 @@
 import { gql } from "@apollo/client";
 
 const CREATE_PARENT = gql`
-mutation CreateParent($firstName: String!, $lastName: String!, $email: String!, $password: String!, $age: Int!) {
-  createParent(firstName: $firstName, lastName: $lastName, email: $email, password: $password, age: $age) {
-  parent {
-    firstName
-    lastName
-    email
+  mutation CreateParent(
+    $firstName: String!
+    $lastName: String!
+    $email: String!
+    $password: String!
+    $age: Int!
+  ) {
+    createParent(
+      firstName: $firstName
+      lastName: $lastName
+      email: $email
+      password: $password
+      age: $age
+    ) {
+      parent {
+        firstName
+        lastName
+        email
+      }
+      token
+    }
   }
-    token
-  }
-}
 `;
 
 // const CREATE_CHILD = gql`
@@ -41,31 +53,28 @@ mutation CreateParent($firstName: String!, $lastName: String!, $email: String!, 
 // `
 
 const ADD_PARENT_TO_EVENT = gql`
-mutation AddParentToEvent($parentId: ID!, $eventId: ID!) {
-  addParentToEvent(parentId: $parentId, eventId: $eventId) {
-    _id
-    attendees {
+  mutation AddParentToEvent($parentId: ID!, $eventId: ID!) {
+    addParentToEvent(parentId: $parentId, eventId: $eventId) {
       _id
+      attendees {
+        _id
+      }
     }
   }
-}
 `;
 
 const PARENT_LOGIN = gql`
-mutation Mutation($email: String!, $password: String!) {
-  logIn(email: $email, password: $password) {
-    parent {
-      _id
-      firstName
-      lastName
-      email
+  mutation Mutation($email: String!, $password: String!) {
+    logIn(email: $email, password: $password) {
+      parent {
+        _id
+        firstName
+        lastName
+        email
+      }
+      token
     }
-    token
   }
-}
-
-`
-
-
+`;
 
 export { CREATE_PARENT, ADD_PARENT_TO_EVENT, PARENT_LOGIN };

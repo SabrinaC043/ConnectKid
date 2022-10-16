@@ -33,6 +33,7 @@ const typeDefs = gql`
   type Weekly {
     tableTopics: String
     quoteDay: String
+    author:String
   }
   type Query {
     parents: [Parent]!
@@ -62,7 +63,6 @@ const typeDefs = gql`
       age: Int
       interests: [String]
       gender: String
-      parentId: ID
     ): Child
 
     createEvent(

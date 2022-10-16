@@ -7,6 +7,7 @@ const weeklySchema = new Schema({
     tableTopics: { type: String, unique: true },
 
     quoteDay: { type: String, unique: true },
+    author: { type: String, unique: true },
 
 });
 
