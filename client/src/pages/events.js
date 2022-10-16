@@ -23,9 +23,9 @@ export default function Events({ eventCards, featuredCard }) {
     .map((event) => event.isFeatured)
     .indexOf(true);
 
-  const firstFeaturedItem = data.events[firstFeaturedIndex];
-  console.log(firstFeaturedIndex);
-  const eventsWithoutFeatured = data.events.filter(
+  const firstFeaturedItem = events[firstFeaturedIndex];
+  // console.log(firstFeaturedIndex);
+  const eventsWithoutFeatured = events.filter(
     (e, i) => i !== firstFeaturedIndex
   );
 
