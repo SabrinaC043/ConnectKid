@@ -11,7 +11,9 @@ const eventSchema = new Schema({
 
   preparationTips: { type: String },
 
-  isFeatured: { type: Boolean, default: false },
+  isFeatured: {type: Boolean, default: false},
+
+  eventDetails: {type: String},
 
   attendees: [
     {

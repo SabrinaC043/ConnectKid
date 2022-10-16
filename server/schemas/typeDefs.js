@@ -27,6 +27,7 @@ const typeDefs = gql`
     date: String
     isFeatured: Boolean
     preparationTips: String
+    eventDetails: String
     attendees: [Parent]
   }
   type Weekly {
@@ -71,6 +72,7 @@ const typeDefs = gql`
       date: String!
       preparationTips: String
       isFeatured: Boolean
+      eventDetails: String
       attendees: [ID]
     ): Event
 

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import {CREATE_PARENT} from "../../utils/apollo/mutations";
 import { useMutation } from "@apollo/client";
-
+import AuthService from "../../utils/Auth"
 const ParentSignUp = () => {
 
     const [ loginForm, setLoginForm ] = useState({
@@ -32,6 +32,7 @@ const ParentSignUp = () => {
         })
 
         console.log(data);
+        AuthService.setLogIn(data.createParent.token);
 
 
         // let value =e.target.type;
