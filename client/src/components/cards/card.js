@@ -1,12 +1,9 @@
 
 import React from 'react';
 import Card from "react-bootstrap/Card";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
 import Dropdown from "react-bootstrap/Dropdown"
 import { DropdownButton } from "react-bootstrap";
-import {Button} from "react-bootstrap";
-import { ListGroup } from "react-bootstrap";
+
 import "../../style/dropdownStyle.css"
 
 

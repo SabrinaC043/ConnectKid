@@ -12,5 +12,6 @@ db.once('open', async () => {
     const event = await Event.insertMany(eventData);
     const weekly = await Weekly.insertMany(weeklyData);
 
+
     console.log("Data has been seeded")
 });
