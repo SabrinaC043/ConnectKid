@@ -76,7 +76,7 @@ const typeDefs = gql`
       attendees: [ID]
     ): Event
 
-    addParentToEvent(parentId: ID!, eventId: ID!): Event
+    addParentToEvent(eventId: ID!, parentId: ID!): Event
 
     logIn(email: String!, password: String!): Auth
   }

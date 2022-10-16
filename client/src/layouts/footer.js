@@ -2,15 +2,19 @@ import React from "react";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import "../style/footerstyle.css";
-import { Row, Col } from "react-bootstrap";
+import { LinkContainer } from 'react-router-bootstrap';
+
 const FooterBottom = () => {
   const style = {
     overflow: "hidden",
+    position: "absolute",
+    left: "0",
+    bottom: "0",
   };
 
   return (
     <Navbar
-      fixed="bottom"
+      // fixed="bottom"
       bg="dark"
       expand="lg"
       variant="dark"
@@ -21,7 +25,9 @@ const FooterBottom = () => {
         style={{ maxHeight: "100px" }}
         navbarScroll
       >
-        <Nav.Link>Home</Nav.Link>
+      <LinkContainer to="/">
+            <Nav.Link>Home</Nav.Link>
+            </LinkContainer>
       </Nav>
 
       <Navbar.Brand href="#" className="d-flex">
