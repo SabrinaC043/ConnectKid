@@ -32,6 +32,7 @@ export default function Events({ eventCards, featuredCard }) {
 
   const firstFeaturedItem = data.events[firstFeaturedIndex];
   const eventsWithoutFeatured = data.events.filter(
+
     (e, i) => i !== firstFeaturedIndex
   );
 
