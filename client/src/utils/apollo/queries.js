@@ -18,6 +18,7 @@ export const WEEKLY = gql`
     weekly {
       tableTopics
       quoteDay
+      author
     }
   }
 `;

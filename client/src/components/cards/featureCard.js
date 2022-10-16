@@ -4,17 +4,11 @@ import Col from "react-bootstrap/Col";
 import { Container } from "react-bootstrap";
 import { useQuery } from "@apollo/client";
 import { WEEKLY } from "../../utils/apollo/queries";
-const FeatureCard = (props) => {
-  const { loading, err, data } = useQuery(WEEKLY);
-  const weekly = data?.weekly || [];
-  if (loading) {
-    return <p>Loading</p>;
-  }
+// import { Player } from "video-react";
+// import "node_modules/video-react/dist/video-react.css";
 
-  if (err) {
-    return <p>Err</p>;
-  }
-  console.log(weekly);
+const FeatureCard = ({ author, quoteDay, quoteOfTheDay, tableTopics, conversationStarters }) => {
+
   return (
     // <Card className="text-center col-9 border" style={{marginTop: "200px"}}>
     // <Card.Body>
@@ -35,13 +29,24 @@ const FeatureCard = (props) => {
     <Card className="text-center">
       <Card.Body>
         <Card.Title>
-          <u>{weekly[Math.floor(Math.random() * 12)].tableTopics}</u>
+          <h5> {conversationStarters}</h5>
+          <p>{tableTopics}</p>
         </Card.Title>
         <Card.Subtitle>
-          {weekly[Math.floor(Math.random() * 12)].quoteDay}
+          <h6><i> {quoteOfTheDay}</i></h6>
+          <i><text>{quoteDay}</text></i>
         </Card.Subtitle>
-        {/* <Card.Text>{props.time}3</Card.Text>
-        <Card.Text>{props.text}4</Card.Text> */}
+        <Card.Subtitle>
+          <p> {author}</p>
+
+        </Card.Subtitle>
+
+        {/* <Card.Text><Player
+          playsInline
+          poster="/assets/poster.png"
+          src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
+        /></Card.Text> */}
+
       </Card.Body>
     </Card>
 

@@ -19,7 +19,11 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.6.5",
     "path": "^0.12.7",
-    "selenium-webdriver": "^4.4.0"
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "redux": "^4.2.0",
+    "selenium-webdriver": "^4.4.0",
+    "video-react": "^0.15.0"
   },
   "keywords": [],
   "author": "",
