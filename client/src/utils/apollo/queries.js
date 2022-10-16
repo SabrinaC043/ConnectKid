@@ -1,6 +1,6 @@
 import { gql } from "@apollo/client";
 
-
+// For all Events
 
 export const ALL_EVENTS = gql`
 query Events {
@@ -18,5 +18,18 @@ query Events {
       lastName
     }
   }
+
 }
-`
+`;
+
+
+// For home page first card
+export const WEEKLY = gql`
+  query allWeeklies {
+    weekly {
+      tableTopics
+      quoteDay
+    }
+  }
+`;
+

@@ -42,6 +42,7 @@ const BasicCard = (props) => {
       </Dropdown>
 
     </Card.Body>
+
     </Card>
   );
 };
