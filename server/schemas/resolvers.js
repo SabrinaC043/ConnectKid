@@ -1,9 +1,10 @@
-const { Parent, Event, Child } = require("../models");
+const { Parent, Event, Child, Weekly } = require("../models");
 
 const { AuthenticationError } = require("apollo-server-express");
 const { signToken } = require("../utils/auth");
 const { pathToArray } = require("graphql/jsutils/Path");
 const { JsonWebTokenError } = require("jsonwebtoken");
+
 const resolvers = {
   Query: {
     parents: async () => {
@@ -14,12 +15,16 @@ const resolvers = {
       return await Parent.findOne({ email });
     },
     events: async () => {
-      return await Event.find({});
-      // .populate("attendees");
+      return await Event.find({}).populate("attendees");
     },
-    singleEvent: async (parent, { name }) => {
-      return await Event.findOne({ name });
+    singleEvent: async (parent, { id }) => {
+      const event = await Event.findById(id).populate("attendees");
+      return event;
     },
+    weekly: async () => {
+      return await Weekly.find({});
+    },
+
   },
 
   Mutation: {
@@ -36,7 +41,9 @@ const resolvers = {
         child,
       });
 
-      const token = signToken(email);
+      const id = newParent._id;
+
+      const token = signToken({firstName, lastName, id, email});
       return { parent: newParent, token };
     },
     createChild: async (
@@ -64,7 +71,7 @@ const resolvers = {
 
     createEvent: async (
       parent,
-      { name, location, time, date, isFeatured, preparationTips, attendees }
+      { name, location, time, date, isFeatured, preparationTips, attendees, eventDetails }
     ) => {
       return await Event.create({
         name,
@@ -74,13 +81,14 @@ const resolvers = {
         isFeatured,
         preparationTips,
         attendees,
+        eventDetails
       });
     },
     addParentToEvent: async (parent, { parentId, eventId }) => {
       return await Event.findOneAndUpdate(
         { _id: eventId },
         { $addToSet: { attendees: parentId } },
-        { new: true, runValidators: true }
+        { new: true }
       );
     },
 
@@ -97,7 +105,9 @@ const resolvers = {
         throw new AuthenticationError("Incorrect email or password");
       }
 
-      const token = signToken({ email });
+      const { firstName, lastName, _id } = currentParent
+
+      const token = signToken({ _id, firstName, lastName, email });
 
       return { parent: currentParent, token };
     },

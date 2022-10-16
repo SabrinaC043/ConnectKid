@@ -45,6 +45,6 @@ parentSchema.methods.isCorrectPassword = async function (password) {
   return bcrypt.compare(password, this.password);
 };
 
-const Parent = model("parent", parentSchema);
+const Parent = model("Parent", parentSchema);
 
 module.exports = Parent;

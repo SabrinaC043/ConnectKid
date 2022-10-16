@@ -11,7 +11,9 @@ const eventSchema = new Schema({
 
   preparationTips: { type: String },
 
-  isFeatured: { type: Boolean, default: false },
+  isFeatured: {type: Boolean, default: false},
+
+  eventDetails: {type: String},
 
   attendees: [
     {
@@ -21,6 +23,6 @@ const eventSchema = new Schema({
   ],
 });
 
-const Event = model("Event", eventSchema);
+const Event = model("event", eventSchema);
 
 module.exports = Event;
