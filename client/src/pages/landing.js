@@ -9,7 +9,7 @@ import Card from "react-bootstrap/Card";
 import Stack from "react-bootstrap/Stack";
 
 
-import backgroundImage from "../assets/images/eventBackground.jpg";
+import backgroundImage from "../assets/images/peopleLaughing.jpg";
 import { useQuery } from "@apollo/client";
 import { WEEKLY } from "../utils/apollo/queries";
 
@@ -18,7 +18,7 @@ export default function Landing() {
   let index = Math.floor(Math.random() * 12);
 
   const { loading, err, data } = useQuery(WEEKLY);
-  const weekly = data?.weekly || [];
+  // const weekly = data?.weekly || [];
   if (loading) {
     return <p>Loading</p>;
   }
@@ -26,87 +26,42 @@ export default function Landing() {
   if (err) {
     return <p>Err</p>;
   }
-  console.log(weekly);
+  // console.log(weekly);
 
   const backgroundStyle = {
     backgroundImage: `url(${backgroundImage})`,
     height: "max-content",
-    paddingBottom: "200px",
+    paddingBottom: "400px",
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat",
   };
   return (
     <Container fluid className="text-center" style={backgroundStyle}>
-      <Row className="align-items-center" style={{ paddingTop: "100px" }}>
-        <Col>
-          <Stack gap={1}>
-            <div
-              xs={12}
-              md={5}
-              style={{ minHeight: "200px", minWidth: "100px" }}
-            >
-              <Card style={{ minHeight: "100px", minWidth: "200px" }}>
-                <FeatureCard
-                  author={weekly[index].author}
-                  tableTopics={weekly[index].tableTopics}
-                  quoteDay={weekly[index].quoteDay}
-                  conversationStarters="Conversation Starters"
-                  quoteOfTheDay="Quote of the Day"
-                />
-              </Card>
-            </div>
-            <div>
-              <Card style={{ minHeight: "100px", minWidth: "100px" }}>
-                <BasicCard />
-              </Card>
-            </div>
-          </Stack>
-        </Col>
-        <Col xs={12} md={5} style={{ minHeight: "400px", minWidth: "200px" }}>
-          <Card style={{ minHeight: "400px", minWidth: "200px" }}>
-            <BasicCard />
-          </Card>
+      <Row style={{paddingTop: "200px"}}>
+        <Col xs={12}>
+          <h1 className="">Connect Kids</h1>
         </Col>
       </Row>
+
+      <Row>
+        <Col>
+          <h6 className="">Helping connect kids of all kinds</h6>
+        </Col>
+      </Row>
+{/* 
+      <Row style={{marginLeft: "0px"}}>
+        <Col>
+        <h3>Events</h3>
+        </Col>
+      </Row> */}
+
+      <Row style={{paddingBottom: "200px"}}>
+        <Col>
+          <p>Connect your kids through our events!</p>
+        </Col>
+      </Row>
+
     </Container>
   );
 }
 
-// export default function Landing() {
-//   const backgroundStyle = {
-//     backgroundImage: `url(${backgroundImage})`,
-//     height: "100%",
-//     paddingBottom: "200px",
-//     backgroundPosition: "center",
-//     backgroundRepeat: "no-repeat",
-//   };
-//   return (
-//     <div style={backgroundStyle}>
-//       <Container fluid className="text-center">
-//         <Row className="align-items-center" style={{ paddingTop: "100px" }}>
-//           <Col>
-//             <Stack gap={1}>
-//               <div
-//                 xs={12}
-//                 md={5}
-//                 style={{ minHeight: "200px", minWidth: "100px" }}
-//               >
-//                 <Card style={{ minHeight: "100px", minWidth: "200px" }}>
-//                   <FeatureCard />
-//                 </Card>
-//               </div>
-//               <div>
-//                 <Card style={{ minHeight: "100px", minWidth: "100px" }}>
-//                   <BasicCard />
-//                 </Card>
-//               </div>
-//             </Stack>
-//           </Col>
-//           <Col xs={12} md={5} style={{ minHeight: "400px", minWidth: "200px" }}>
-//             <Card style={{ minHeight: "400px", minWidth: "200px" }}>
-//               <BasicCard />
-//             </Card>
-//           </Col>
-//         </Row>
-//       </Container>
-//     </div>
-//   );
-// }

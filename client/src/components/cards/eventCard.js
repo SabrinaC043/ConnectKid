@@ -15,7 +15,7 @@ const EventCard = (props) => {
 
     const zoomRegex = new RegExp("^https://")
 
-    const endRegex = new RegExp("(.*?)TX")
+    const endRegex = new RegExp("(.*?)[A-Z]{2}")
 
     const onAdd = async (e) => {
 
