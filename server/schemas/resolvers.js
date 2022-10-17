@@ -102,6 +102,15 @@ const resolvers = {
       );
     },
 
+    removeParentToEvent: async (parent, { parentId, eventId }) => {
+      const removedParent = await Event.findOne({
+        _id: eventId,
+      });
+      removedParent.attendees.pull(parentId);
+      removedParent.save();
+      return removedParent;
+    },
+
     logIn: async (parent, { email, password }) => {
       const currentParent = await Parent.findOne({ email });
 
