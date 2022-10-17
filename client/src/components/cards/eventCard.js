@@ -25,14 +25,11 @@ const EventCard = (props) => {
     addParentToEvent({
       variables: { eventId: props.eventId, parentId: userData.data._id },
     });
-    window.location.reload();
   };
 
   const onDelete = async (e) => {
     e.preventDefault();
     e.stopPropagation();
-    // console.log(props.attendees);
-    // console.log(userData.data);
     for (let i of props.attendees) {
       if (
         i.firstName == userData.data.firstName &&
@@ -45,7 +42,6 @@ const EventCard = (props) => {
         console.log(data);
       }
     }
-    window.location.reload();
   };
 
   return userData ? (
