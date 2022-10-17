@@ -1,4 +1,5 @@
-import React from "react";
+
+import React, { useState } from 'react';
 import Card from "react-bootstrap/Card";
 import Dropdown from "react-bootstrap/Dropdown";
 import { DropdownButton } from "react-bootstrap";
@@ -15,7 +16,8 @@ const EventCard = (props) => {
   const [addParentToEvent] = useMutation(ADD_PARENT_TO_EVENT);
   const [deleteParentFromEvent] = useMutation(DELETE_PARENT_FROM_EVENT);
 
-  const zoomRegex = new RegExp("^https://");
+    const zoomRegex = new RegExp("^https://")
+    const endRegex = new RegExp("(.*?)[A-Z]{2}")
 
     const endRegex = new RegExp("(.*?)[A-Z]{2}")
 
