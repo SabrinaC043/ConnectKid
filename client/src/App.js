@@ -1,12 +1,8 @@
 import "./App.css";
 
-
-
 import { Link, BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-
-
-import React from 'react';
+import React from "react";
 
 // Components
 import ThemeProvider from "./utils/ThemeContext";
@@ -22,10 +18,6 @@ import AuthService from "./utils/Auth";
 import ParentLogIn from "./components/forms/parentLogin";
 
 function App() {
-<<<<<<< HEAD
-=======
-
->>>>>>> eaa59e6d7a83a62f3d995c837ec68b7c3322c8ac
   const eCards = [
     {
       title: "Title1",
@@ -48,22 +40,15 @@ function App() {
     text: "text1",
   };
 
-
-
   const auth = (nextState, replace, next) => {
     const isLoggedIn = AuthService.isLoggedIn();
     if (!isLoggedIn) {
       replace({
-        pathname:"/login",
-        state: {nextPathname: nextState.location.pathname}
-      })
+        pathname: "/login",
+        state: { nextPathname: nextState.location.pathname },
+      });
     }
-  }
-  
-
-  return (
-
->>>>>>> eaa59e6d7a83a62f3d995c837ec68b7c3322c8ac
+  };
 
   return (
     // <UserForm />
@@ -74,25 +59,18 @@ function App() {
         <NavScrollExample />
         <Routes>
           <Route exact path="/" element={<Landing />} />
-          <Route exact path="/about" element={<About />} onEnter={auth}/>
+          <Route exact path="/about" element={<About />} onEnter={auth} />
           <Route
             exact
             path="/events"
             element={<Events eventCards={eCards} featuredCard={fCard} />}
           />
-<<<<<<< HEAD
           <Route exact path="/signup" element={<Signup />} />
-=======
-          <Route exact path='/signup' element={<Signup />}/>
           <Route exact path="/login" element={<ParentLogIn />} />
-          
->>>>>>> eaa59e6d7a83a62f3d995c837ec68b7c3322c8ac
         </Routes>
         {/* <NavScrollExample /> */}
         <FooterBottom />
       </Router>
-
-
     </ThemeProvider>
   );
 }

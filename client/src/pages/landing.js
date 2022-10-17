@@ -33,7 +33,7 @@ export default function Landing() {
   };
   return (
     <Container fluid className="text-center" style={backgroundStyle}>
-      <Sidebar />
+      {/* <Sidebar /> */}
       <Row className="align-items-center" style={{ paddingTop: "100px" }}>
         <Col>
           <Stack gap={1}>
@@ -42,7 +42,7 @@ export default function Landing() {
               md={5}
               style={{ minHeight: "200px", minWidth: "100px" }}
             >
-              <Card style={{ minHeight: "100px", minWidth: "200px" }}>
+              {/* <Card style={{ minHeight: "100px", minWidth: "200px" }}>
                 <FeatureCard
                   author={weekly[index].author}
                   tableTopics={weekly[index].tableTopics}
@@ -50,7 +50,7 @@ export default function Landing() {
                   conversationStarters="Conversation Starters"
                   quoteOfTheDay="Quote of the Day"
                 />
-              </Card>
+              </Card> */}
             </div>
             <div>
               <Card style={{ minHeight: "100px", minWidth: "100px" }}>
