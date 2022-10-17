@@ -63,6 +63,17 @@ const ADD_PARENT_TO_EVENT = gql`
   }
 `;
 
+const DELETE_PARENT_FROM_EVENT = gql`
+  mutation removeParentToEvent($parentId: ID!, $eventId: ID!) {
+    removeParentToEvent(parentId: $parentId, eventId: $eventId) {
+      _id
+      attendees {
+        _id
+      }
+    }
+  }
+`;
+
 const PARENT_LOGIN = gql`
   mutation Mutation($email: String!, $password: String!) {
     logIn(email: $email, password: $password) {
@@ -77,4 +88,9 @@ const PARENT_LOGIN = gql`
   }
 `;
 
-export { CREATE_PARENT, ADD_PARENT_TO_EVENT, PARENT_LOGIN };
+export {
+  CREATE_PARENT,
+  ADD_PARENT_TO_EVENT,
+  PARENT_LOGIN,
+  DELETE_PARENT_FROM_EVENT,
+};

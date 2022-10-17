@@ -33,7 +33,7 @@ const typeDefs = gql`
   type Weekly {
     tableTopics: String
     quoteDay: String
-    author:String
+    author: String
   }
   type Query {
     parents: [Parent]!
@@ -77,6 +77,8 @@ const typeDefs = gql`
     ): Event
 
     addParentToEvent(eventId: ID!, parentId: ID!): Event
+
+    removeParentToEvent(eventId: ID!, parentId: ID!): Event
 
     logIn(email: String!, password: String!): Auth
   }
