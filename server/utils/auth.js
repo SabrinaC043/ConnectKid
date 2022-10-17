@@ -8,6 +8,6 @@ module.exports = {
     signToken: function(info) {
         const payload = info;
         console.log(payload)
-        return jwt.sign({data: payload}, process.env.SECRET_KEY, {expiresIn: expiration})
+        return jwt.sign({data: payload}, secret, {expiresIn: expiration})
     }
 }

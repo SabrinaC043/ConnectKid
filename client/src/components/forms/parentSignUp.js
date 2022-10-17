@@ -45,7 +45,6 @@ const ParentSignUp = () => {
                 password: signupForm.password, age: parseInt(signupForm.age)}
         })
 
-        console.log(data);
         AuthService.setLogIn(data.createParent.token);
 
 
@@ -68,13 +67,13 @@ const ParentSignUp = () => {
         <Form className="border shadow p-3 bg-light" onSubmit={onSubmit}>
             <Row>
             <Col>
-                <Form.Group classname="mb-3" controlId="firstName">
+                <Form.Group className="mb-3" controlId="firstName">
                     <Form.Label>First Name: </Form.Label>
                     <Form.Control type="text" placeholder="First Name" onChange={onChange}/>
                 </Form.Group>
             </Col>
             <Col xs={12} sm={6}>
-                <Form.Group classname="mb-3" controlId="lastName">
+                <Form.Group className="mb-3" controlId="lastName">
                     <Form.Label>Last Name: </Form.Label>
                     <Form.Control type="text" placeholder="Last Name" onChange={onChange} />
                 </Form.Group>
@@ -86,12 +85,12 @@ const ParentSignUp = () => {
                 <Form.Control type="email" placeholder="name@email.com" onChange={onChange} />
             </Form.Group>
 
-            <Form.Group classname="mb-3" controlId="password">
+            <Form.Group className="mb-3" controlId="password">
                 <Form.Label>Password: </Form.Label>
                 <Form.Control type="password" placeholder="password" onChange={onChange} />
             </Form.Group>
 
-            <Form.Group classname="mb-3" controlId="age">
+            <Form.Group className="mb-3" controlId="age">
                 <Form.Label>Age: </Form.Label>
                 <Form.Control type="number" onChange={onChange} />
             </Form.Group>
