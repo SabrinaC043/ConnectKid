@@ -27,13 +27,20 @@ const typeDefs = gql`
     date: String
     isFeatured: Boolean
     preparationTips: String
+    eventDetails: String
     attendees: [Parent]
+  }
+  type Weekly {
+    tableTopics: String
+    quoteDay: String
+    author:String
   }
   type Query {
     parents: [Parent]!
     singleParent(email: String!): Parent
     events: [Event]!
     singleEvent(id: ID!): Event
+    weekly: [Weekly]!
   }
 
   type Auth {
@@ -56,7 +63,6 @@ const typeDefs = gql`
       age: Int
       interests: [String]
       gender: String
-      parentId: ID
     ): Child
 
     createEvent(
@@ -66,10 +72,11 @@ const typeDefs = gql`
       date: String!
       preparationTips: String
       isFeatured: Boolean
+      eventDetails: String
       attendees: [ID]
     ): Event
 
-    addParentToEvent(parentId: ID!, eventId: ID!): Event
+    addParentToEvent(eventId: ID!, parentId: ID!): Event
 
     logIn(email: String!, password: String!): Auth
   }

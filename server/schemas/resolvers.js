@@ -1,9 +1,11 @@
-const { Parent, Event, Child } = require("../models");
+const { Parent, Event, Child, Weekly } = require("../models");
 
 const { AuthenticationError } = require("apollo-server-express");
 const { signToken } = require("../utils/auth");
 const { pathToArray } = require("graphql/jsutils/Path");
 const { JsonWebTokenError } = require("jsonwebtoken");
+const { Types } = require("mongoose");
+
 const resolvers = {
   Query: {
     parents: async () => {
@@ -14,11 +16,14 @@ const resolvers = {
       return await Parent.findOne({ email });
     },
     events: async () => {
-      return await Event.find({});
+      return await Event.find({}).populate("attendees");
     },
     singleEvent: async (parent, { id }) => {
       const event = await Event.findById(id).populate("attendees");
       return event;
+    },
+    weekly: async () => {
+      return await Weekly.find({});
     },
   },
 
@@ -36,7 +41,9 @@ const resolvers = {
         child,
       });
 
-      const token = signToken(email);
+      const id = newParent._id;
+
+      const token = signToken({ firstName, lastName, id, email });
       return { parent: newParent, token };
     },
     createChild: async (
@@ -44,27 +51,37 @@ const resolvers = {
       { firstName, lastName, age, interests, gender, parentId },
       context
     ) => {
-      // if (context.user) {
-      const child = new Child({
-        firstName,
-        lastName,
-        age,
-        interests,
-        gender,
-      });
+      if (context.user) {
+        const child = new Child({
+          firstName,
+          lastName,
+          age,
+          interests,
+          gender,
+        });
 
-      await Parent.findByIdAndUpdate(parentId, {
-        $addToSet: { child: child },
-      });
+        await Parent.findByIdAndUpdate(parentId, {
+          $addToSet: { child: child },
+        });
 
-      return child;
+        return child;
+      }
 
-      // throw new AuthenticationError("Not logged in");
+      throw new AuthenticationError("Not logged in");
     },
 
     createEvent: async (
       parent,
-      { name, location, time, date, isFeatured, preparationTips, attendees }
+      {
+        name,
+        location,
+        time,
+        date,
+        isFeatured,
+        preparationTips,
+        attendees,
+        eventDetails,
+      }
     ) => {
       return await Event.create({
         name,
@@ -74,12 +91,13 @@ const resolvers = {
         isFeatured,
         preparationTips,
         attendees,
+        eventDetails,
       });
     },
     addParentToEvent: async (parent, { parentId, eventId }) => {
       return await Event.findOneAndUpdate(
-        { _id: eventId },
-        { $addToSet: { attendees: parentId } },
+        { _id: Types.ObjectId(eventId) },
+        { $addToSet: { attendees: Types.ObjectId(parentId) } },
         { new: true }
       );
     },
@@ -97,7 +115,9 @@ const resolvers = {
         throw new AuthenticationError("Incorrect email or password");
       }
 
-      const token = signToken({ email });
+      const { firstName, lastName, _id } = currentParent;
+
+      const token = signToken({ _id, firstName, lastName, email });
 
       return { parent: currentParent, token };
     },
