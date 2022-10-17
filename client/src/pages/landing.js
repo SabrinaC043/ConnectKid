@@ -8,9 +8,11 @@ import Row from "react-bootstrap/Row";
 import Card from "react-bootstrap/Card";
 import Stack from "react-bootstrap/Stack";
 
+
 import backgroundImage from "../assets/images/eventBackground.jpg";
 import { useQuery } from "@apollo/client";
 import { WEEKLY } from "../utils/apollo/queries";
+
 
 export default function Landing() {
   let index = Math.floor(Math.random() * 12);
