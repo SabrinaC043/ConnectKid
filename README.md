@@ -50,8 +50,8 @@ Preparation: (KanBan Board and WireFrame)
 
 ## Usage
 
-Execution: (links to app)
-![alt text here]()
+Execution: (Heroku link to app)
+![Link to deployed heroku app](https://thawing-woodland-41631.herokuapp.com/)
 
 [Presentation:](https://www.example.com)
 ![alt text here](/client/src/assets/images/screenshots/Presnetation-concept.png)
