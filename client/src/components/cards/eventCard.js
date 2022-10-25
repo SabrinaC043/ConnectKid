@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React from 'react';
 import Card from "react-bootstrap/Card";
 import Dropdown from "react-bootstrap/Dropdown";
 import { DropdownButton } from "react-bootstrap";
@@ -55,7 +55,7 @@ const EventCard = (props) => {
         <Card.Text>{props.time}</Card.Text>
         {zoomRegex.test(props.location) ? (
           <Card.Text>
-            <a href={props.location} target="_blank">Link To Meeting</a>
+            <a href={props.location} target="_blank" rel="noopener">Link To Meeting</a>
           </Card.Text>
         ) : (
           <Card.Text>{endRegex.exec(props.location)[0]}</Card.Text>
